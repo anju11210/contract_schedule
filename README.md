@@ -1,4 +1,4 @@
-# <contract schedule>
+# <contract_schedule>
 
 ## サイト概要
 ### サイトテーマ
