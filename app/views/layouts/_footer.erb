@@ -1,0 +1,20 @@
+<footer style="background-color: #F8F8FF;">
+  <div class='container mt-5'>
+  	<div class='row'>
+  	  <% if admin_signed_in? %>
+  	  <div class='mx-auto'>
+    		<p style="padding: 50px;">CopyRight Infratop.inc</p>
+    	</div>
+  	  <% elsif customer_signed_in? %>
+  	  <div class='mx-auto'>
+    		<p style="padding: 50px;">CopyRight Infratop.inc</p>
+    	</div>
+  	  <% else %>
+    	<div class='mx-auto'>
+    		<p style="padding: 20px;">CopyRight Infratop.inc</p>
+        <p style="padding: 10px;"> 管理者ログインは<%= link_to("こちら", new_admin_session_path) %></p>
+    	</div>
+    	<% end %>
+    </div>
+  </div>
+</footer>
