@@ -14,12 +14,21 @@ Rails.application.routes.draw do
   #管理者側ルーティング設定
   namespace :admin do
     get "/" => "homes#top"
+    resources :customers, only: [:new, :create, :show, :edit, :update]
+    resources :real_estates, only: [:new, :create, :edit, :update]
+    resources :appointments, only: [:new, :create, :index, :show, :edit, :update]
+    resources :questions, only: [:index, :update]
   end
 
   #会員側ルーティング設定
   scope module: :public do
     root "homes#top"
     get 'homes/about' => "homes#about", as: "about"
+    resources :customers, only: [:show, :edit, :update]
+    get "/customers/:id/unsubscribe" => "customers#unsubscribe", as: "unsubscribe"
+    patch "/customers/:id/withdraw" => "customers#withdraw", as: "withdraw"
+    resources :appointments, only: [:index, :show]
+    resources :questions, only: [:index, :create, :show]
   end
 
 

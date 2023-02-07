@@ -5,9 +5,6 @@
       <% if admin_signed_in? %>
         <!--後日パス変更-->
         <h3><%= link_to("Contract Schedule", root_path) %></h3>
-      <% elsif customer_signed_in? %>
-        <!--後日パス変更-->
-        <h3><%= link_to("Contract Schedule", root_path) %></h3>
       <% else %>
         <h3><%= link_to("Contract Schedule", root_path) %></h3>
       <% end %>
@@ -18,6 +15,7 @@
       <!--ハンバーガーメニューの開閉設定-->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+          <!--管理者ログイン時ヘッダー-->
           <% if admin_signed_in? %>
           <ul class="nav justify-content-end">
             <li class="nav-item">
@@ -49,6 +47,7 @@
               </span>
             </li>
           </ul>
+          <!--会員ログイン時ヘッダー-->
           <% elsif customer_signed_in? %>
           <ul class="nav justify-content-end">
             <li class="nav-item">
@@ -80,6 +79,7 @@
               </span>
             </li>
           </ul>
+          <!--ログアウト時ヘッダー-->
           <% else %>
           <ul class="nav justify-content-end">
             <li class="nav-item">

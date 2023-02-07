@@ -1,14 +1,17 @@
 <footer style="background-color: #F8F8FF;">
   <div class='container mt-5'>
   	<div class='row'>
+  	  <!--管理者ログイン時フッター-->
   	  <% if admin_signed_in? %>
   	  <div class='mx-auto'>
     		<p style="padding: 50px;">CopyRight Infratop.inc</p>
     	</div>
+    	<!--会員ログイン時フッター-->
   	  <% elsif customer_signed_in? %>
   	  <div class='mx-auto'>
     		<p style="padding: 50px;">CopyRight Infratop.inc</p>
     	</div>
+    	<!--ログアウト時フッター-->
   	  <% else %>
     	<div class='mx-auto'>
     		<p style="padding: 20px;">CopyRight Infratop.inc</p>
