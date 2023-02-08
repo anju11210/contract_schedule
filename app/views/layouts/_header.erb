@@ -4,37 +4,39 @@
     <div class="container">
       <% if admin_signed_in? %>
         <!--後日パス変更-->
-        <h3><%= link_to("Contract Schedule", root_path) %></h3>
+        <h3><%= link_to("Contract Schedule", admin_root_path) %></h3>
       <% else %>
         <h3><%= link_to("Contract Schedule", root_path) %></h3>
       <% end %>
+
       <!--ハンバーガーメニュー-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler text-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon text-primary"></span>
       </button>
       <!--ハンバーガーメニューの開閉設定-->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+
           <!--管理者ログイン時ヘッダー-->
           <% if admin_signed_in? %>
           <ul class="nav justify-content-end">
             <li class="nav-item">
               <span style="margin: 120px">
-              <%= link_to class: "nav-link text-light" do %>
+              <%= link_to admin_root_path, class: "nav-link text-light" do %>
                 <button type="button" class="btn btn-outline-dark" style="width:125px;">会員一覧</button>
               <% end %>
               </span>
             </li>
             <li class="nav-item">
               <span style="margin: 130px">
-              <%= link_to class: "nav-link text-light" do %>
+              <%= link_to new_admin_customer_path, class: "nav-link text-light" do %>
                 <button type="button" class="btn btn-outline-dark" style="width:125px;">会員情報登録</button>
               <% end %>
               </span>
             </li>
             <li class="nav-item">
               <span style="margin: 130px">
-              <%= link_to class: "nav-link text-light" do %>
+              <%= link_to admin_questions_path, class: "nav-link text-light" do %>
                 <button type="button" class="btn btn-outline-dark" style="width:125px;">Q&A一覧</button>
               <% end %>
               </span>
@@ -91,7 +93,7 @@
             </li>
             <li class="nav-item ">
               <span style="margin: 110px">
-              <%= link_to about_path, class: "nav-link text-light" do %>
+              <%= link_to about_homes_path, class: "nav-link text-light" do %>
                 <button type="button" class="btn btn-outline-dark" style="width:100px;">About</button>
               <% end %>
               </span>

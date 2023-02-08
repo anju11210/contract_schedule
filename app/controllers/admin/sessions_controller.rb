@@ -24,4 +24,16 @@ class Admin::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
+  protected
+
+  def after_sign_in_path_for(resource)
+    #会員一覧ページ（admin/homes/top）へ遷移
+    admin_root_path
+  end
+
+  def after_sign_out_path_for(resource)
+    #管理者ログインページへ遷移
+    new_admin_session_path
+  end
 end
