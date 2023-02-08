@@ -4,7 +4,7 @@
     <div class="container">
       <% if admin_signed_in? %>
         <!--後日パス変更-->
-        <h3><%= link_to("Contract Schedule", admin_root_path) %></h3>
+        <h3><%= link_to("Contract Schedule", root_path) %></h3>
       <% else %>
         <h3><%= link_to("Contract Schedule", root_path) %></h3>
       <% end %>
@@ -23,14 +23,14 @@
             <li class="nav-item">
               <span style="margin: 120px">
               <%= link_to admin_root_path, class: "nav-link text-light" do %>
-                <button type="button" class="btn btn-outline-dark" style="width:125px;">会員一覧</button>
+                <button type="button" class="btn btn-outline-dark" style="width:125px;">買主一覧</button>
               <% end %>
               </span>
             </li>
             <li class="nav-item">
               <span style="margin: 130px">
               <%= link_to new_admin_customer_path, class: "nav-link text-light" do %>
-                <button type="button" class="btn btn-outline-dark" style="width:125px;">会員情報登録</button>
+                <button type="button" class="btn btn-outline-dark" style="width:125px;">買主新規登録</button>
               <% end %>
               </span>
             </li>
@@ -84,13 +84,6 @@
           <!--ログアウト時ヘッダー-->
           <% else %>
           <ul class="nav justify-content-end">
-            <li class="nav-item">
-              <span style="margin: 110px">
-              <%= link_to root_path, class: "nav-link text-light" do %>
-                <button type="button" class="btn btn-outline-dark" style="width:100px;">Home</button>
-              <% end %>
-              </span>
-            </li>
             <li class="nav-item ">
               <span style="margin: 110px">
               <%= link_to about_homes_path, class: "nav-link text-light" do %>

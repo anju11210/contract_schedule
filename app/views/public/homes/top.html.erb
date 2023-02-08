@@ -6,11 +6,13 @@
       </div>
       <div class="btn-wrapper col-10 mx-auto">
         <div class="row" style="padding: 20px;" >
+          <% if admin_signed_in? %>
+            <%= link_to 'スケジュールを確認する', admin_root_path, class: "btn btn-outline-primary btn-block mb-3" %>
           <%# if customer_signed_in? %>
             <%# link_to 'スケジュールを確認する',会員スケジュール一覧_path, class: "btn btn-outline-primary btn-block mb-3" %>
-          <%# else %>
+          <% else %>
             <%= link_to 'スケジュールを確認する', new_customer_session_path, class: "btn btn-outline-primary btn-block mb-3" %>
-          <%# end %>
+          <% end %>
         </div>
       </div>
     </div>
