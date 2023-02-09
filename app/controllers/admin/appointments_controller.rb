@@ -1,12 +1,15 @@
 class Admin::AppointmentsController < ApplicationController
   def new
+    @appointment = Appointment.new
+    @customer = Customer.find(params[:customer_id])
   end
 
   def create
   end
 
   def index
-    #@customer = Customer.find(params[:id])
+    @appointments = Appointment.all
+    @customer = Customer.find(params[:customer_id])
   end
 
   def show

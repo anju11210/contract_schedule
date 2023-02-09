@@ -8,24 +8,26 @@
       <h2>【登録】スケジュール</h2>
     </div>
   </div>
-  <%# form_with model: [:admin, @appointment] do |f| %>
+
+  <%= form_with model: @appointment, url: admin_customer_appointments_path(@customer) do |f| %>
+  <!--URLでも渡しているが、念のためhidden記述-->
+  <%= f.hidden_field :customer_id, value: @customer.id %>
     <div class="row form-group">
       <div class="col-2 offset-md-1"><%= f.label "手続き名" %></div>
       <div class="col-1 text-right pr-0"></div>
-      <div class="col-3"><%= f.text_field :name %></div>
+      <div class="col-3"><%= f.text_field :name, :size => "30", placeholder: "（例）契約・本審査申込・決済etc." %></div>
     </div>
 
     <div class="row form-group">
       <div class="col-2 offset-md-1"><%= f.label "日時" %></div>
       <div class="col-1 text-right pr-0"></div>
-      <div class="col-1"><%= f.text_field :date, placeholder: "日にち" %></div>
+      <div class="col-1"><%= f.text_field :date, :size => "15", placeholder: "20XX年XX月XX日" %></div>
       <div class="col-1 text-right pr-0"></div>
-      <div class="col-1"><%= f.text_field :time, placeholder: "開始時間" %></div>
+      <div class="col-1"><%= f.text_field :time, :size => "10", placeholder: "XX時XX分" %></div>
     </div>
-
     <div class="row form-group">
       <div class="col-3 offset-md-1"><%= f.label "取引場所" %></div>
-      <div class="col-3"><%= f.text_field :place_name, placeholder: "（例）XX銀行" %></div>
+      <div class="col-3"><%= f.text_field :place_name, placeholder: "（例）XX銀行etc." %></div>
     </div>
 
     <div class="row form-group">
@@ -42,5 +44,5 @@
         <%= f.submit "新規登録", class:"btn btn-outline-primary btn-block mb-1" %>
       </div>
     </div>
-  <%# end %>
+  <% end %>
 </div>

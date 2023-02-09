@@ -1,33 +1,38 @@
-<div class='col-md-8 offset-md-1'>
-  <h2>スケジュール</h2>
-  <table class='table table-hover table-inverse'>
-    <thead>
-      <tr>
-        <th></th>
-        <th>手続き名</th>
-        <th>日時</th>
-        <th>場所</th>
-        <th colspan = "5"></th>
-      </tr>
-    </thead>
-          <tbody>
-            <%# @appointment.each do |appointment| %>
-            <tr>
-              <td>
-                <%# @appointment.name %>
-              </td>
-              <td>
-                <%# @appointment.date %>
-                <%# @appointment.time %>
-              </td>
-              <td>
-                <%# @appointment.place_name %>
-              </td>
-              <td>
-                <%# link_to "スケジュール詳細", admin_appointment_path %>
-              </td>
-            </tr>
-            <%# end %>
-          </tbody>
-        </table>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+
+    <%= render 'admin/real_estates/real_estate_info' %>
+    <%= render 'admin/customers/customer_info' %>
+
+    <div class="col-md-1"></div>
+    <div class="col-md-10 mt-5">
+      <h2>スケジュール</h2>
+      <div class="text-right mb-2">
+        <%= link_to "新規登録", new_admin_appointment_path, class:"btn btn-outline-primary" %>
       </div>
+      <div><%= link_to "アポイントメントを作成する", new_admin_customer_appointment_path(@customer), class: "btn btn-outline-dark" %></div>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th colspan = "1">日時</th>
+            <th colspan = "2">手続き名</th>
+            <th colspan = "3">場所</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <% @appointments.each do |appointment| %>
+            <td>
+              <%= appointment.date %>
+              <%= appointment.time %>
+            </td>
+            <td><%= appointment.name %></td>
+            <td><%= appointment.place_name %></td>
+            <td><</td>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

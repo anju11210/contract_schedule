@@ -1,3 +1,4 @@
+<!--完成-->
 <div class="container p-5">
   <div class="row p-3">
     <div class='mx-auto'>
@@ -8,8 +9,8 @@
         <div class="row" style="padding: 20px;" >
           <% if admin_signed_in? %>
             <%= link_to 'スケジュールを確認する', admin_root_path, class: "btn btn-outline-primary btn-block mb-3" %>
-          <%# if customer_signed_in? %>
-            <%# link_to 'スケジュールを確認する',会員スケジュール一覧_path, class: "btn btn-outline-primary btn-block mb-3" %>
+          <% elsif customer_signed_in? %>
+            <%= link_to 'スケジュールを確認する',appointments_path, class: "btn btn-outline-primary btn-block mb-3" %>
           <% else %>
             <%= link_to 'スケジュールを確認する', new_customer_session_path, class: "btn btn-outline-primary btn-block mb-3" %>
           <% end %>

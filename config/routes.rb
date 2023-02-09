@@ -14,12 +14,15 @@ Rails.application.routes.draw do
   #管理者側ルーティング設定
   namespace :admin do
     root "homes#top"
-    resources :customers, only: %i(new create show edit update)
+    #アポイントを、アポイント登録時から会員と紐づけたいため
+    resources :customers, only: %i(new create show edit update) do
+      resources :appointments, only: %i(new create index show edit update)
+    end
+
     resource :customers, only: [] do
       get :search
     end
     resources :real_estates, only: %i(new create edit update)
-    resources :appointments, only: %i(new create index show edit update)
     resources :questions, only: %i(index update)
   end
 

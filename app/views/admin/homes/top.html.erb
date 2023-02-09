@@ -20,11 +20,14 @@
           <tr>
           <% @customers.each do |customer| %>
             <td><%= customer.created_at.strftime("%Y/%m/%d") %></td>
-            <td><%= link_to customer.last_name + customer.first_name, admin_appointments_path %></td>
+            <td><%= customer.last_name + customer.first_name %></td>
             <td><%= customer.phone_number %></td>
             <td><%# 物件名 %></td>
             <td><%= customer.status %></td>
           <% end %>
+          <td>
+            <%# link_to "スケジュール一覧", admin_customer_appointments_path(@customer) %>
+          </td>
           </tr>
         </tbody>
       </table>

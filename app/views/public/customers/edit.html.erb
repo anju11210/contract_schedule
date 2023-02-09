@@ -1,2 +1,61 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class="container mt-5 mb-5">
+  <div class="row my-3">
+    <div class='col-sm-8 px-sm-0 offset-sm-1'>
+      <h2>【編集】</h2>
+    </div>
+  </div>
+  <%= form_with model: [@customer] do |f| %>
+  <div class="row form-group">
+    <div class="col-2 offset-md-1"><%= f.label "お名前" %></div>
+    <div class="col-1 text-right pr-0"></div>
+    <div class="col-1"><%= f.text_field :last_name, :size => "10", placeholder: "姓" %></div>
+    <div class="col-1 text-right pr-0"></div>
+    <div class="col-1"><%= f.text_field :first_name, :size => "10", placeholder: "名" %></div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-2 offset-md-1"><%= f.label "フリガナ" %></div>
+    <div class="col-1 text-right pr-0"></div>
+    <div class="col-1"><%= f.text_field :last_name_kana, :size => "10", placeholder: "セイ" %></div>
+    <div class="col-1 text-right pr-0"></div>
+    <div class="col-1"><%= f.text_field :first_name_kana, :size => "10", placeholder: "メイ" %></div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-3 offset-md-1"><%= f.label "現住所" %></div>
+    <div class="col-3"><%= f.text_field :address, :size => "40", placeholder: "都道府県名から入力" %></div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-3 offset-md-1"><%= f.label "電話番号" %></div>
+    <div class="col-3"><%= f.text_field :phone_number, placeholder: "ハイフンなし" %></div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-3 offset-md-1"><%= f.label "メールアドレス" %></div>
+    <div class="col-3"><%= f.email_field :email, :size => "25", placeholder: "当サイトログイン時に使用" %></div>
+  </div>
+  <div class="row form-group">
+    <div class="col-3 offset-md-1">
+      <%# if @minimum_password_length %>
+        <%# f.label "パスワード(#{@minimum_password_length}文字以上)" %>
+      <%# end %>
+      <%= f.label "パスワード" %>
+    </div>
+    <!-- 下記に、placeholder「"(#{@minimum_password_length}文字以上)"」を記載したい-->
+    <div class="col-3"><%= f.password_field :password %></div>
+  </div>
+  <div class="row form-group">
+    <div class="col-3 offset-md-1"><%= f.label "パスワード（確認用）" %></div>
+    <div class="col-3"><%= f.password_field :password_confirmation %></div>
+  </div>
+  <div class="row form-group">
+    <div class="col-2 offset-md-1 mt-3 mb-5">
+      <%= link_to "戻る", customer_path, class: "btn btn-outline-dark" %>
+    </div>
+    <div class="col-2 offset-md-1 mt-3 mb-5">
+      <%= f.submit "更新", class:"btn btn-outline-primary btn-block mb-1" %>
+    </div>
+  </div>
+  <% end %>
+</div>
