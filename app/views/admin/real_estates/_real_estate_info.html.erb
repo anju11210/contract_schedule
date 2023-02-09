@@ -1,0 +1,29 @@
+<div class = "col-md-3">
+  <h2>取引物件</h2>
+  <table class = "table">
+    <tbody>
+      <tr>
+        <th>物件名</th>
+        <td>
+          <%# @real_estates.name %>
+        </td>
+      </tr>
+      <tr>
+        <th>所在地</th>
+        <td><%# @real_estates.address %></th>
+      </tr>
+      <tr>
+        <th>成約価格</th>
+        <td><%# @real_estates.price %></th>
+      </tr>
+    </tbody>
+  </table>
+  <div class = "row">
+    <%# link_to "編集" edit_admin_real_estate_path(customer.id), class: "btn btn-outline-secondary btn-block edit_user_69737" do %>
+    <%# end %>
+  </div>
+  <div class = "row">
+    <%# link_to "新規登録" new_admin_real_estate_path(customer.id), class: "btn btn-outline-secondary btn-block edit_user_69737" do %>
+    <%# end %>
+  </div>
+</div>

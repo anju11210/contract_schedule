@@ -1,1 +1,46 @@
-<h1>Admin予定作成</h1>
+<div class="container mt-5 mb-5">
+  <div class="row my-3">
+
+    <%= render 'admin/real_estates/real_estate_info' %>
+    <%= render 'admin/customers/customer_info' %>
+
+    <div class='col-sm-8 px-sm-0 offset-sm-1'>
+      <h2>【登録】スケジュール</h2>
+    </div>
+  </div>
+  <%# form_with model: [:admin, @appointment] do |f| %>
+    <div class="row form-group">
+      <div class="col-2 offset-md-1"><%= f.label "手続き名" %></div>
+      <div class="col-1 text-right pr-0"></div>
+      <div class="col-3"><%= f.text_field :name %></div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-2 offset-md-1"><%= f.label "日時" %></div>
+      <div class="col-1 text-right pr-0"></div>
+      <div class="col-1"><%= f.text_field :date, placeholder: "日にち" %></div>
+      <div class="col-1 text-right pr-0"></div>
+      <div class="col-1"><%= f.text_field :time, placeholder: "開始時間" %></div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-3 offset-md-1"><%= f.label "取引場所" %></div>
+      <div class="col-3"><%= f.text_field :place_name, placeholder: "（例）XX銀行" %></div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-3 offset-md-1"><%= f.label "取引場所住所" %></div>
+      <div class="col-3"><%= f.text_field :place_address, :size => "40" %></div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-3 offset-md-1"><%= f.label "備考" %></div>
+      <div class="col-3"><%= f.email_field :description, :size => "100" %></div>
+    </div>
+    <div class="row form-group">
+      <div class="col-2 offset-md-1 mt-3 mb-5">
+        <%= f.submit "新規登録", class:"btn btn-outline-primary btn-block mb-1" %>
+      </div>
+    </div>
+  <%# end %>
+</div>

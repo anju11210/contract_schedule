@@ -6,6 +6,7 @@ class Admin::AppointmentsController < ApplicationController
   end
 
   def index
+    #@customer = Customer.find(params[:id])
   end
 
   def show

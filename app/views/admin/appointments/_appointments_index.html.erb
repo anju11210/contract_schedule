@@ -1,0 +1,33 @@
+<div class='col-md-8 offset-md-1'>
+  <h2>スケジュール</h2>
+  <table class='table table-hover table-inverse'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>手続き名</th>
+        <th>日時</th>
+        <th>場所</th>
+        <th colspan = "5"></th>
+      </tr>
+    </thead>
+          <tbody>
+            <%# @appointment.each do |appointment| %>
+            <tr>
+              <td>
+                <%# @appointment.name %>
+              </td>
+              <td>
+                <%# @appointment.date %>
+                <%# @appointment.time %>
+              </td>
+              <td>
+                <%# @appointment.place_name %>
+              </td>
+              <td>
+                <%# link_to "スケジュール詳細", admin_appointment_path %>
+              </td>
+            </tr>
+            <%# end %>
+          </tbody>
+        </table>
+      </div>

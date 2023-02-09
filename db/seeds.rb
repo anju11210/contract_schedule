@@ -12,21 +12,21 @@ Admin.find_or_create_by!(email: "sample-email@admin") do |admin|
 end
 
 Customer.find_or_create_by!(email: "sample@one") do |customer|
-  customer.first_name = "一"
-  customer.last_name = "一郎"
-  customer.first_name_kana = "イチ"
-  customer.last_name_kana = "イチロウ"
-  customer.address = "一県"
+  customer.first_name = "一郎"
+  customer.last_name = "一"
+  customer.first_name_kana = "イチロウ"
+  customer.last_name_kana = "イチ"
+  customer.address = "一県一市一区一町一丁目一番一号1111号室"
   customer.phone_number = "11111111111"
   customer.password = "customer1"
 end
 
 Customer.find_or_create_by!(email: "sample@two") do |customer|
-  customer.first_name = "二"
-  customer.last_name = "二郎"
-  customer.first_name_kana = "ニ"
-  customer.last_name_kana = "ジロウ"
-  customer.address = "二県"
+  customer.first_name = "二郎"
+  customer.last_name = "二"
+  customer.first_name_kana = "ジロウ"
+  customer.last_name_kana = "ニ"
+  customer.address = "二県二市二町二番一二号"
   customer.phone_number = "22222222222"
   customer.password = "customer2"
 end
