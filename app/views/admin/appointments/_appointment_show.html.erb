@@ -1,81 +1,173 @@
-<div class="offset-sm-4 col-sm-4">
-  <table class="table table-borderless table-hover">
-    <tbody>
-      <tr>
-        <th>手続き名</th>
-        <td></td>
-        <td>
-		    	<%# @customer.last_name %>
-	      </td>
-      </tr>
-      <tr class="brown-border">
-        <th>日時</th>
-	      <td></td>
-	      <td>
-		    	<%# @appointment.date %>
-          <%# @appointment.time %>
-	    	</td>
-	    </tr>
-	    <tr class="brown-border">
-	      <th>場所</th>
-	      <td></td>
-	      <td><%# @appointment.place_name %></td>
-	    </tr>
-	    <tr class="brown-border">
-	      <th>住所</th>
-	      <td></td>
-	      <td><%# @appointment.place_address %></td>
-	    </tr>
-    </tbody>
-  </table>
+<div class = "col-md-8 offset-md-1">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-10 mt-5">
+      <table class="table table-borderless table-hover">
+        <tbody>
+          <tr class="brown-border">
+            <th>手続き名</th>
+            <td>
+    		    	<%= appointment.name %>
+    	      </td>
+          </tr>
 
-  <table class="table table-borderless table-hover">
-    <tbody>
-      <tr>
-        <th>持ち物</th>
-        <td></td>
-        <td>
-		    	<%# @preparations.name %>
-		    	<%# @preparations.amount %>
-	      </td>
-      </tr>
-    </table>
-    <table class="table table-borderless table-hover">
-      <tr class="brown-border">
-        <th>金員</th>
-	      <td></td>
-	      <td>
-		    	<%# @preparations.price %>
-	    	</td>
-	    </tr>
-	    <tr class="brown-border">
-	      <th>金員合計</th>
-	      <td></td>
-	      <td><%# @preparations.priceの合計 %></td>
-	    </tr>
-    </tbody>
-  </table>
+          <tr class="brown-border">
+            <th>日時</th>
+    	      <td>
+    		    	<%= appointment.date %>
+              <%= appointment.time %>
+    	    	</td>
+    	    </tr>
 
-  <table class="table table-borderless table-hover">
-    <tbody>
-      <tr class="brown-border">
-        <th>備考</th>
-	      <td></td>
-	      <td>
-		    	<%# @preparations.price %>
-	    	</td>
-	    </tr>
-    </tbody>
-  </table>
+    	    <tr class="brown-border">
+    	      <th>場所</th>
+    	      <td><%= appointment.place_name %></td>
+    	    </tr>
 
-  <div class="row form-group">
-    <div class="col-1"></div>
-    <div>
-      <%# link_to "スケジュール一覧へ戻る", admin_appointments_path, class: "btn btn-outline-dark" %>
-    </div>
-    <div class="col-1"></div>
-    <div>
-      <%# link_to "編集", edit_admin_appointment_path, class: "btn btn-outline-primary" %>
+    	    <tr class="brown-border">
+    	      <th>住所（場所）</th>
+    	      <td><%= appointment.place_address %></td>
+    	    </tr>
+
+          <tr class="brown-border">
+            <th>お持ちもの</th>
+            <td>
+    		    	<%= appointment.preparation_thing %>
+    	      </td>
+          </tr>
+
+          <tr class="brown-border">
+            <th>備考</th>
+            <td>
+    		    	<%= appointment.description_1 %>
+    	      </td>
+          </tr>
+        </table>
+
+        <h3>ご用意いただく金員</h3>
+        <table class="table table-borderless table-hover">
+    	    <tr class="brown-border">
+    	      <th>手付金</th>
+    	      <td><%= appointment.earnest_money %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>仲介手数料</th>
+    	      <td><%= appointment.brokerage_fee %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>収入印紙代</th>
+    	      <td><%= appointment.revenue_stamp_fee %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>売買残金</th>
+    	      <td><%= appointment.remaining_amount %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>固定資産税清算金</th>
+    	      <td><%= appointment.real_estate_tax %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>
+    	        登記費用</br>
+    	        （司法書士宛）
+    	      </th>
+    	      <td><%= appointment.registration_fee_1 %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>
+    	        登記費用</br>
+    	        （家屋調査士宛）
+    	      </th>
+    	      <td><%= appointment.registration_fee_2 %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>リフォーム費用</th>
+    	      <td><%= appointment.renovation_fee %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>管理費・積立金清算金</th>
+    	      <td><%= appointment.apartment_management_fee %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>その他費用（１）</th>
+    	      <td><%= appointment.other_expense_1 %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>その他費用（２）</th>
+    	      <td><%= appointment.other_expense_2 %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>その他費用（３）</th>
+    	      <td><%= appointment.other_expense_3 %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>その他費用（４）</th>
+    	      <td><%= appointment.other_expense_4 %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>その他費用（５）</th>
+    	      <td><%= appointment.other_expense_5 %></td>
+    	      <td>円</td>
+    	    </tr>
+
+    	    <tr class="brown-border">
+    	      <th>合計</th>
+    	      <td>
+      	        <%= total %>
+    	       </td>
+    	      <td>円</td>
+    	    </tr>
+    	  </tbody>
+      </table>
+
+      <table class="table table-borderless table-hover">
+        <tbody>
+    	    <tr class="brown-border">
+    	      <th>
+              備考</br>
+              （金員について）
+            </th>
+    	      <td><%= appointment.description_2 %></td>
+    	    </tr>
+        </tbody>
+      </table>
+
+      <div class="row form-group">
+        <div class="col-1"></div>
+        <div>
+          <%= link_to "スケジュール一覧へ戻る", admin_customer_appointments_path(customer), class: "btn btn-outline-dark" %>
+        </div>
+        <div class="col-1"></div>
+        <div>
+          <%= link_to "編集", edit_admin_customer_appointment_path(customer, appointment), class: "btn btn-outline-primary" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -4,7 +4,7 @@
     <div class="col-md-10 mt-5">
       <h2>買主一覧</h2>
       <div class="text-right mb-2">
-        <%= link_to "新規登録", new_admin_customer_path, class:"btn btn-outline-primary" %>
+        <%= link_to "買主新規登録", new_admin_customer_path, class:"btn btn-outline-primary" %>
       </div>
       <table class="table table-hover table-inverse">
         <thead>
@@ -22,16 +22,14 @@
             <td><%= customer.created_at.strftime("%Y/%m/%d") %></td>
             <td><%= customer.last_name + customer.first_name %></td>
             <td><%= customer.phone_number %></td>
-            <td><%# 物件名 %></td>
             <td><%= customer.status %></td>
+            <td>
+              <%= link_to "スケジュール一覧", admin_customer_appointments_path(customer.id) %>
+            </td>
           <% end %>
-          <td>
-            <%# link_to "スケジュール一覧", admin_customer_appointments_path(@customer) %>
-          </td>
           </tr>
         </tbody>
       </table>
-      <%# paginate @items %>
     </div>
   </div>
 </div>

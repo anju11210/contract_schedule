@@ -1,11 +1,9 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
+    <%= render 'admin/real_estates/real_estate_info' %>
+    
+    <%= render 'admin/customers/customer_info', customer: @customer %>
 
-  <%= render 'admin/real_estates/real_estate_info' %>
-
-  <%= render 'admin/customers/customer_info' %>
-
-  <%= render 'admin/appointments/appointment_show' %>
-
+    <%= render 'admin/appointments/appointment_show', appointment: @appointment, customer: @customer, total: @total %>
   </div>
 </div>

@@ -30,7 +30,23 @@ ActiveRecord::Schema.define(version: 2023_02_07_155454) do
     t.time "time"
     t.string "place_name"
     t.string "place_address"
-    t.text "description"
+    t.text "description_1"
+    t.text "description_2"
+    t.string "preparation_thing"
+    t.integer "earnest_money", default: 0, null: false
+    t.integer "brokerage_fee", default: 0, null: false
+    t.integer "revenue_stamp_fee", default: 0, null: false
+    t.integer "remaining_amount", default: 0, null: false
+    t.integer "real_estate_tax", default: 0, null: false
+    t.integer "registration_fee_1", default: 0, null: false
+    t.integer "registration_fee_2", default: 0, null: false
+    t.integer "renovation_fee", default: 0, null: false
+    t.integer "apartment_management_fee", default: 0, null: false
+    t.integer "other_expense_1", default: 0, null: false
+    t.integer "other_expense_2", default: 0, null: false
+    t.integer "other_expense_3", default: 0, null: false
+    t.integer "other_expense_4", default: 0, null: false
+    t.integer "other_expense_5", default: 0, null: false
     t.integer "customer_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
