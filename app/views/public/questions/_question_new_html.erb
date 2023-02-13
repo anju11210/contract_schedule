@@ -1,13 +1,13 @@
-<%= form_with model: モデル, local:trueって何？ url記述 do |f| %>
+<%= form_with model: question, url: questions_path do |f| %>
   <div class="form-group">
-    <%= f.label "タイトル" %>
-    <%= f.text_field :title, :size => "30", placeholder: "（例））融資手続きについてetc." %>
+    <%= f.label "件名" %>
+    <%= f.text_field :title, :size => "30" %>
   </div>
   <div class="form-group">
     <%= f.label "本文" %>
-    <%= f.text_area :body, class: 'form-control book_body' %>
+    <%= f.text_area :body, class:'form-control book_body' %>
   </div>
   <div class="form-group">
-    <%= f.submit class: 'btn btn-success' %>
+    <%= f.submit "送信", class:"btn btn-outline-primary" %>
   </div>
 <% end %>

@@ -1,25 +1,20 @@
-<div class = "col-md-3">
-  <h2>買主</h2>
-  <table class = "table">
-    <tbody>
-      <tr>
-        <th>氏名</th>
-        <td>
-          <%= customer.last_name %>
-          <%= customer.first_name %>
-        </td>
-      </tr>
-      <tr>
-        <th>電話番号</th>
-        <td><%= customer.phone_number %></th>
-      </tr>
-      <tr>
-        <th>進捗</th>
-        <td><%= customer.status %></th>
-      </tr>
-    </tbody>
-  </table>
-  <div class = "row">
-    <%= link_to "詳細", admin_customer_path(customer.id), class: "btn btn-outline-secondary btn-block edit_user_69737" %>
-  </div>
-</div>
+<table class = "table">
+  <tbody>
+    <tr>
+      <th>氏名</th>
+      <td><%= customer.last_name %><%= customer.first_name %></td>
+    </tr>
+    <tr>
+      <th>電話番号</th>
+      <td><%= customer.phone_number %></th>
+    </tr>
+    <tr>
+      <th>会員状況</th>
+      <td><%= @customer.active_text %></th>
+    </tr>
+    <tr>
+      <th>進捗</th>
+      <td><%= @customer.ja_status %></th>
+    </tr>
+  </tbody>
+</table>

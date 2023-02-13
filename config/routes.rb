@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     end
 
     resources :appointments, only: %i(index show)
-    resources :questions, only: %i(index create show)
+    resources :questions, only: %i(create index show)
   end
 
 

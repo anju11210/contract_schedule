@@ -1,11 +1,13 @@
 <div class = "container px-5 px-sm-0">
   <div class = "row">
-
-  <%= render 'admin/real_estates/real_estate_info' %>
-
-  <%# render 'public/questions/question_new' %>
-
-  <%= render 'admin/appointments/appointment_show' %>
-
+    <div class='col-md-3'>
+      <h2 style="padding:20px;">取引物件</h2>
+      <%= render 'admin/real_estates/real_estate_info', real_estate: @real_estate %>
+      <h2 style="padding:20px;">ご意見・ご質問</h2>
+      <%# render 'public/questions/question_new' %>
+    </div>
+    <div class = "col-md-8 offset-md-1">
+      <%= render 'admin/appointments/appointment_show', appointment: @appointment, customer: @customer, total: @total %>
+    </div>
   </div>
 </div>

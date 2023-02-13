@@ -82,16 +82,6 @@ ActiveRecord::Schema.define(version: 2023_02_07_155454) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
-  create_table "preparations", force: :cascade do |t|
-    t.string "name", null: false
-    t.integer "amount"
-    t.integer "price"
-    t.integer "appointment_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["appointment_id"], name: "index_preparations_on_appointment_id"
-  end
-
   create_table "questions", force: :cascade do |t|
     t.string "title", null: false
     t.text "body"
@@ -114,7 +104,6 @@ ActiveRecord::Schema.define(version: 2023_02_07_155454) do
 
   add_foreign_key "appointments", "customers"
   add_foreign_key "comments", "questions"
-  add_foreign_key "preparations", "appointments"
   add_foreign_key "questions", "customers"
   add_foreign_key "real_estates", "customers"
 end

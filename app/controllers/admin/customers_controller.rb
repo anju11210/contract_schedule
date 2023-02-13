@@ -40,6 +40,7 @@ class Admin::CustomersController < ApplicationController
       :address,
       :phone_number,
       :email,
+      :is_active,
       :status,
       :password,
       :password_confirmation,

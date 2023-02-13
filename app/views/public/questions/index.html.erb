@@ -1,2 +1,31 @@
-<h1>Public::Questions#index</h1>
-<p>Find me in app/views/public/questions/index.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class='col-md-8 offset-md-1' style="padding: 20px;">
+      <h2>ご意見・ご質問一覧</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>送信日時</th>
+            <th>件名</th>
+            <% if admin_signed_in? %>
+              <th style="text-align:center">送信者</th>
+            <% end %>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @questions.each do |question| %>
+          <tr>
+            <td><%= question.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+            <td><%= question.title %></td>
+            <% if admin_signed_in? %>
+              <td></td>
+            <% end %>
+            <td><%= link_to "詳細", question_path(question.id) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

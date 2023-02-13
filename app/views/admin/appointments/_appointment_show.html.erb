@@ -6,17 +6,12 @@
         <tbody>
           <tr class="brown-border">
             <th>手続き名</th>
-            <td>
-    		    	<%= appointment.name %>
-    	      </td>
+            <td><%= appointment.name %></td>
           </tr>
 
           <tr class="brown-border">
             <th>日時</th>
-    	      <td>
-    		    	<%= appointment.date %>
-              <%= appointment.time %>
-    	    	</td>
+    	      <td><%= appointment.date %><%= appointment.time %></td>
     	    </tr>
 
     	    <tr class="brown-border">
@@ -29,144 +24,178 @@
     	      <td><%= appointment.place_address %></td>
     	    </tr>
 
-          <tr class="brown-border">
-            <th>お持ちもの</th>
-            <td>
-    		    	<%= appointment.preparation_thing %>
-    	      </td>
-          </tr>
+          <% if appointment.preparation_thing.present? %>
+            <tr class="brown-border">
+              <th>お持ちもの</th>
+              <td><%= appointment.preparation_thing %></td>
+            </tr>
+          <% end %>
 
-          <tr class="brown-border">
-            <th>備考</th>
-            <td>
-    		    	<%= appointment.description_1 %>
-    	      </td>
-          </tr>
-        </table>
-
-        <h3>ご用意いただく金員</h3>
-        <table class="table table-borderless table-hover">
-    	    <tr class="brown-border">
-    	      <th>手付金</th>
-    	      <td><%= appointment.earnest_money %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>仲介手数料</th>
-    	      <td><%= appointment.brokerage_fee %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>収入印紙代</th>
-    	      <td><%= appointment.revenue_stamp_fee %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>売買残金</th>
-    	      <td><%= appointment.remaining_amount %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>固定資産税清算金</th>
-    	      <td><%= appointment.real_estate_tax %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>
-    	        登記費用</br>
-    	        （司法書士宛）
-    	      </th>
-    	      <td><%= appointment.registration_fee_1 %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>
-    	        登記費用</br>
-    	        （家屋調査士宛）
-    	      </th>
-    	      <td><%= appointment.registration_fee_2 %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>リフォーム費用</th>
-    	      <td><%= appointment.renovation_fee %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>管理費・積立金清算金</th>
-    	      <td><%= appointment.apartment_management_fee %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>その他費用（１）</th>
-    	      <td><%= appointment.other_expense_1 %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>その他費用（２）</th>
-    	      <td><%= appointment.other_expense_2 %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>その他費用（３）</th>
-    	      <td><%= appointment.other_expense_3 %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>その他費用（４）</th>
-    	      <td><%= appointment.other_expense_4 %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>その他費用（５）</th>
-    	      <td><%= appointment.other_expense_5 %></td>
-    	      <td>円</td>
-    	    </tr>
-
-    	    <tr class="brown-border">
-    	      <th>合計</th>
-    	      <td>
-      	        <%= total %>
-    	       </td>
-    	      <td>円</td>
-    	    </tr>
-    	  </tbody>
-      </table>
-
-      <table class="table table-borderless table-hover">
-        <tbody>
-    	    <tr class="brown-border">
-    	      <th>
-              備考</br>
-              （金員について）
-            </th>
-    	      <td><%= appointment.description_2 %></td>
-    	    </tr>
+          <% if appointment.description_1.present? %>
+            <tr class="brown-border">
+              <th>備考</th>
+              <td><%= appointment.description_1 %></td>
+            </tr>
+          <% end %>
         </tbody>
       </table>
 
+      <h3>ご用意いただく金員</h3>
+      <table class="table table-borderless table-hover">
+        <tbody>
+          <% if appointment.earnest_money != 0 %>
+      	    <tr class="brown-border">
+      	      <th>手付金</th>
+      	      <td><%= appointment.earnest_money.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+          <% if appointment.brokerage_fee != 0 %>
+      	    <tr class="brown-border">
+      	      <th>仲介手数料</th>
+      	      <td><%= appointment.brokerage_fee.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+          <% if appointment.revenue_stamp_fee != 0 %>
+      	    <tr class="brown-border">
+      	      <th>収入印紙代</th>
+      	      <td><%= appointment.revenue_stamp_fee.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+    	    <% if appointment.remaining_amount != 0 %>
+      	    <tr class="brown-border">
+      	      <th>売買残金</th>
+      	      <td><%= appointment.remaining_amount.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+          <% end %>
+
+    	    <% if appointment.real_estate_tax != 0 %>
+      	    <tr class="brown-border">
+      	      <th>固定資産税清算金</th>
+      	      <td><%= appointment.real_estate_tax.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+    	    <% if appointment.registration_fee_1 != 0 %>
+      	    <tr class="brown-border">
+      	      <th>登記費用</br>（司法書士宛）</th>
+      	      <td><%= appointment.registration_fee_1.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+    	    <% if appointment.registration_fee_2 != 0 %>
+      	    <tr class="brown-border">
+      	      <th>
+      	        登記費用</br>（家屋調査士宛）</th>
+      	      <td><%= appointment.registration_fee_2.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+
+    	    <% if appointment.renovation_fee != 0 %>
+      	    <tr class="brown-border">
+      	      <th>リフォーム費用</th>
+      	      <td><%= appointment.renovation_fee.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+    	    <% if appointment.apartment_management_fee != 0 %>
+      	    <tr class="brown-border">
+      	      <th>管理費・積立金清算金</th>
+      	      <td><%= appointment.apartment_management_fee.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+    	    <% if appointment.other_expense_1 != 0 %>
+      	    <tr class="brown-border">
+      	      <th>その他費用（１）</th>
+      	      <td><%= appointment.other_expense_1.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+    	    <% if appointment.other_expense_2 != 0 %>
+      	    <tr class="brown-border">
+      	      <th>その他費用（２）</th>
+      	      <td><%= appointment.other_expense_2.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+          <% if appointment.other_expense_3 != 0 %>
+      	    <tr class="brown-border">
+      	      <th>その他費用（３）</th>
+      	      <td><%= appointment.other_expense_3.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+    	    <% if appointment.other_expense_4 != 0 %>
+      	    <tr class="brown-border">
+      	      <th>その他費用（４）</th>
+      	      <td><%= appointment.other_expense_4.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+    	    <% if appointment.other_expense_5 != 0 %>
+      	    <tr class="brown-border">
+      	      <th>その他費用（５）</th>
+      	      <td><%= appointment.other_expense_5.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+
+    	    <% if total != 0 %>
+      	    <tr class="brown-border">
+      	      <th>合計</th>
+      	      <td><%= total.to_s(:delimited, delimiter: ',') %></td>
+      	      <td>円</td>
+      	    </tr>
+    	    <% end %>
+    	  </tbody>
+      </table>
+
+      <% if appointment.description_2.present? %>
+        <table class="table table-borderless table-hover">
+          <tbody>
+      	    <tr class="brown-border">
+      	      <th>
+                備考</br>
+                （金員について）
+              </th>
+      	      <td><%= appointment.description_2 %></td>
+      	    </tr>
+          </tbody>
+        </table>
+      <% end %>
+
       <div class="row form-group">
         <div class="col-1"></div>
-        <div>
-          <%= link_to "スケジュール一覧へ戻る", admin_customer_appointments_path(customer), class: "btn btn-outline-dark" %>
-        </div>
-        <div class="col-1"></div>
-        <div>
-          <%= link_to "編集", edit_admin_customer_appointment_path(customer, appointment), class: "btn btn-outline-primary" %>
-        </div>
+        <% if admin_signed_in? %>
+          <div>
+            <%= link_to "スケジュール一覧へ戻る", admin_customer_appointments_path(customer), class: "btn btn-outline-dark" %>
+          </div>
+          <div class="col-1"></div>
+          <div>
+            <%= link_to "編集", edit_admin_customer_appointment_path(customer, appointment), class: "btn btn-outline-primary" %>
+          </div>
+        <% else %>
+          <div>
+            <%= link_to "スケジュール一覧へ戻る", appointments_path, class: "btn btn-outline-dark" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

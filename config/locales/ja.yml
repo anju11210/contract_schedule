@@ -1,0 +1,26 @@
+ja:
+  enums:
+    customer:
+      status:
+        subscription: "【お申込み】商談中"
+        examine1_preparation: "【事前審査】ご準備中"
+        examine1: "【事前審査】審査中"
+        examine1_clear: "【事前審査】承認済み"
+        real_estates_contract_preparation: "【ご契約】ご準備中"
+        real_estates_contract_clear: "【ご契約】完了"
+        examine2_preparation: "【本審査】ご準備中"
+        examine2: "【本審査】審査中"
+        examine2_clear: "【本審査】承認済み"
+        mortgage_contract_preparation: "【金銭消費貸借契約】ご準備中"
+        mortgage_contract_clear: "【金銭消費貸借契約】完了"
+        transfer_preparation: "【決済(お引き渡し)】ご準備中"
+        transfer_clear: "【決済(お引き渡し)】完了"
+        wait_seller: "【待機】売主様お手続き待ち"
+        wait_bank: "【待機】銀行手続き待ち"
+        wait_judicial_scrivener: "【待機】司法書士手続き待ち"
+        wait_house_investigator: "【待機】家屋調査士手続き待ち"
+        wait_management_company: "【待機】管理会社手続き待ち"
+        wait_management_association: "【待機】管理組合手続き待ち"
+        wait_public_institution: "【待機】公的機関手続き待ち"
+        wait_house_builder: "【待機】ハウスメーカー手続き待ち"
+        wait_third_person: "【待機】第三者お手続き待ち"
