@@ -1,2 +1,8 @@
-<h1>Admin::Questions#index</h1>
-<p>Find me in app/views/admin/questions/index.html.erb</p>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class='col-md-8 offset-md-1' style="padding: 20px;">
+      <h2>ご意見・ご質問一覧</h2>
+      <%= render 'admin/questions/questions_index', questions: @questions %>
+    </div>
+  </div>
+</div>

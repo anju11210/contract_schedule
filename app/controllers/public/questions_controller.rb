@@ -8,10 +8,13 @@ class Public::QuestionsController < ApplicationController
   end
 
   def index
-    @questions = Question.all
+    @customer = current_customer
+    #アソシエーションからcustomerに紐づくquestionsを取ってくる
+    @questions = @customer.questions.page(params[:page]).per(20)
   end
 
   def show
+    @question = Question.find(params[:id])
   end
 
   private

@@ -20,7 +20,6 @@ class Admin::RealEstatesController < ApplicationController
   end
 
   def update
-    # @customer = Customer.find(params[:customer_id])
     @real_estate = RealEstate.find(params[:id])
     if @real_estate.update(real_estate_params)
       redirect_to admin_customer_appointments_path(@real_estate.customer)

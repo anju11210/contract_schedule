@@ -53,7 +53,7 @@
             <ul class="nav justify-content-end">
               <li class="nav-item">
                 <span style="margin: 120px">
-                  <%= link_to appointments_path, class: "nav-link text-light" do %>
+                  <%= link_to customer_appointments_path(@customer.id), class: "nav-link text-light" do %>
                     <button type="button" class="btn btn-outline-dark" style="width:125px;">スケジュール</button>
                   <% end %>
                 </span>

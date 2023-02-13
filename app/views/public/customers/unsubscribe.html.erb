@@ -1,2 +1,23 @@
-<h1>Public::Customers#unsubscribe</h1>
-<p>Find me in app/views/public/customers/unsubscribe.html.erb</p>
+<div class="container p-5">
+  <div class="row p-3">
+    <div class='mx-auto'>
+      <div class="d-flex align-items-center justify-content-center p-3">
+        <h1>本当に退会しますか？</h1>
+      </div>
+      <p class= "text-center">
+        退会すると、スケジュールや会員登録情報等が閲覧できなくなります。</br>
+        退会される場合は、「退会する」ボタンを押してください。
+      </p>
+      <div class="row" style="padding: 20px;" ></div>
+      <div class="btn-wrapper col-10 mx-auto">
+        <div class="row" style="padding: 20px;" >
+          <!-- 会員ステータスを無効に切り替えるswichアクションを呼ぶ-->
+          <%= link_to "退会する", customer_withdraw_path, method: :patch, data: { confilm: "本当に退会しますか？" }, class: "btn btn-outline-danger btn-block mb-3" %>
+        </div>
+        <div class="row" style="padding: 20px;" >
+          <%= link_to "退会しない", customer_path(current_customer), class: "btn btn-outline-primary btn-block mb-3" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

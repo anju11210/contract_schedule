@@ -19,9 +19,9 @@
         <td style="text-align:center"><%= appointment.name %></td>
         <td style="text-align:center"><%= appointment.place_name %></td>
         <% if admin_signed_in? %>
-          <td style="text-align:center"><%= link_to "詳細", admin_customer_appointment_path(customer.id, appointment.id) %></td>
+          <td style="text-align:center"><%= link_to "詳細", admin_customer_appointment_path(appointment.id, customer.id) %></td>
         <% else %>
-          <td><%= link_to "詳細", appointment_path(appointment.id) %></td>
+          <td><%= link_to "詳細", customer_appointment_path(appointment.id, customer.id) %></td>
         <% end %>
         <td></td>
       </tr>

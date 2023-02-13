@@ -47,7 +47,7 @@ class Customer < ApplicationRecord
   end
 
   #退会していたらログインできないようにする
-  #active_for_authentication：：deviseのgemの中に定義されているメソッド
+  #active_for_authentication：deviseのgemの中に定義されているメソッド
   def active_for_authentication?
     super && is_active
   end

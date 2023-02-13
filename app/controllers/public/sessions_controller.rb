@@ -29,7 +29,7 @@ class Public::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(resource)
     #予定一覧画面へ遷移
-    appointments_path(current_customer)
+    customer_appointments_path(@customer.id)
   end
 
   def after_sign_out_path_for(resource)

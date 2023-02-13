@@ -10,16 +10,22 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-    redirect_to admin_customer_path(@customer.id)
+    redirect_to customer_path(@customer.id)
     else
     render :edit
     end
   end
 
   def unsubscribe
+    @customer = Customer.find(params[:customer_id])
   end
 
   def withdraw
+    @customer = Customer.find(params[:customer_id])
+    @customer.update(is_active: false)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
 
   private

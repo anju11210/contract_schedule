@@ -1,0 +1,26 @@
+<table class="table table-hover table-inverse">
+  <thead>
+    <tr>
+      <th>送信日時</th>
+      <th>件名</th>
+      <% if admin_signed_in? %>
+        <th style="text-align:center">送信者</th>
+      <% end %>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% questions.each do |question| %>
+    <tr>
+      <td><%= question.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
+      <td><%= question.title %></td>
+      <% if admin_signed_in? %>
+        <td><%#= question.customer.name %></td>
+        <td><%= link_to "詳細", admin_question_path(question.id) %></td>
+      <% else %>
+        <td><%= link_to "詳細", question_path(question.id) %></td>
+      <% end %>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

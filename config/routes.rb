@@ -23,7 +23,7 @@ Rails.application.routes.draw do
       get :search
     end
     resources :real_estates, only: %i(new create edit update)
-    resources :questions, only: %i(index update)
+    resources :questions, only: %i(index show update)
   end
 
   #会員側ルーティング設定
@@ -37,12 +37,10 @@ Rails.application.routes.draw do
     resources :customers, only: %i(show edit update) do
       get :unsubscribe
       patch :withdraw
+      resources :appointments, only: %i(index show)
     end
-
-    resources :appointments, only: %i(index show)
     resources :questions, only: %i(create index show)
   end
-
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
