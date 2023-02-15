@@ -15,13 +15,13 @@
   <tbody>
     <% appointments.each do |appointment| %>
       <tr>
-        <td style="text-align:center"><%= appointment.date.strftime("%Y年%m月%d日") %><%= appointment.time.strftime("%H時%M分") %></td>
+        <td style="text-align:center"><%= l(appointment.date, format: :customize) if appointment.date %><%= l(appointment.time, format: :customize) if appointment.time %></td>
         <td style="text-align:center"><%= appointment.name %></td>
         <td style="text-align:center"><%= appointment.place_name %></td>
         <% if admin_signed_in? %>
-          <td style="text-align:center"><%= link_to "詳細", admin_customer_appointment_path(appointment.id, customer.id) %></td>
+          <td style="text-align:center"><%= link_to "詳細", admin_customer_appointment_path(customer, appointment) %></td>
         <% else %>
-          <td><%= link_to "詳細", customer_appointment_path(appointment.id, customer.id) %></td>
+          <td><%= link_to "詳細", customer_appointment_path(customer, appointment) %></td>
         <% end %>
         <td></td>
       </tr>

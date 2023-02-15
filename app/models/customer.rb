@@ -8,6 +8,17 @@ class Customer < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_one :real_estate
 
+  validates :last_name,  presence: true
+  validates :first_name, presence: true
+  # カタカナ制限
+  validates :last_name_kana,  presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :first_name_kana, presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
+  validates :address, presence: true
+  validates :phone_number, presence: true, format: {with: /\A\d{10}$|^\d{11}\z/, message: '10桁か11桁の電話番号を入力してください。'}
+  validates :email,  presence: true
+  validates :password, presence: true, length: { minimum: 6 }, on: :create
+  validates :password_confirmation, presence: true, length: { minimum: 6 }, on: :create
+
   enum status: {
     subscription: 0,
     examine1_preparation: 1,
@@ -50,6 +61,10 @@ class Customer < ApplicationRecord
   #active_for_authentication：deviseのgemの中に定義されているメソッド
   def active_for_authentication?
     super && is_active
+  end
+
+  def self.search(keyword)
+    where("last_name_kana like :keyword OR first_name_kana like :keyword OR phone_number like :keyword", keyword: "%#{keyword}%")
   end
 
 end

@@ -2,9 +2,17 @@
   <div class="row my-3">
     <div class='col-sm-8 px-sm-0 offset-sm-1'>
       <h2>【登録】買主情報</h2>
+      <% if @customer.errors.any? %>
+        <%= @customer.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @customer.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
   </div>
-
+  <!--下記のようなモデル指定方法で、railsが自動でurlを判断してくれるとのこと（理解が浅い）-->
   <%= form_with model: [:admin, @customer] do |f| %>
     <div class="row form-group">
       <div class="col-2 offset-md-1"><%= f.label "お名前" %></div>
@@ -40,11 +48,10 @@
     <div class="row form-group">
       <div class="col-3 offset-md-1">
         <%# if @minimum_password_length %>
-          <%# f.label "パスワード(#{@minimum_password_length}文字以上)" %>
+          <%#= f.label "パスワード(#{@minimum_password_length}文字以上)" %>
         <%# end %>
         <%= f.label "パスワード" %>
       </div>
-      <!-- 下記に、placeholder「"(#{@minimum_password_length}文字以上)"」を記載したい-->
       <div class="col-3"><%= f.password_field :password %></div>
     </div>
 

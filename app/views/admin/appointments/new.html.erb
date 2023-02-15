@@ -5,25 +5,34 @@
       <%= render 'admin/real_estates/real_estate_info', real_estate: @real_estate %>
       <% if @real_estate.present? %>
         <div class = "row">
-          <%= link_to "編集", edit_admin_real_estate_path(@real_estate.id), class: "btn btn-outline-secondary btn-block edit_user_69737" %>
+          <%= link_to "編集", edit_admin_real_estate_path(@real_estate), class: "btn btn-outline-secondary btn-block edit_user_69737" %>
         </div>
       <% end %>
       <% if @real_estate.blank? %>
         <div class = "row">
-          <%= link_to "新規登録", new_admin_real_estate_path(@customer.id), class: "btn btn-outline-primary btn-block edit_user_69737" %>
+          <%= link_to "新規登録", new_admin_real_estate_path(@customer), class: "btn btn-outline-primary btn-block edit_user_69737" %>
         </div>
       <% end %>
       <h2 style="padding:20px;">買主</h2>
       <%= render 'admin/customers/customer_info', customer: @customer %>
       <div class = "row">
-        <%= link_to "詳細", admin_customer_path(@customer.id), class: "btn btn-outline-secondary btn-block edit_user_69737" %>
+        <%= link_to "詳細", admin_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_user_69737" %>
       </div>
     </div>
     <div class='col-sm-8 px-sm-0 offset-sm-1'>
       <h2 style="padding:20px;">【登録】スケジュール</h2>
+      <% if @appointment.errors.any? %>
+        <%= @appointment.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @appointment.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
     </div>
     <%= form_with model: @appointment, url: admin_customer_appointments_path(@customer) do |f| %>
       <!--customer_idはURLでも渡しているが、hiddenで書くことでストロングパラメータから一括で取ってくることができる-->
+      <!--admin/appointments_controllerの7行目の記述を行った場合：「value: @customer.id」が不要となる（既にidを持っているため）-->
     <%= f.hidden_field :customer_id, value: @customer.id %>
       <div class="row form-group">
         <div class="col-2 offset-md-1"><%= f.label "手続き名" %></div>

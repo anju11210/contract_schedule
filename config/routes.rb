@@ -15,21 +15,24 @@ Rails.application.routes.draw do
   namespace :admin do
     root "homes#top"
     #アポイントを、アポイント登録時から会員と紐づけたいため
+    #appointmentsのnewとcreateのみをネストさせる方法もある（その方が、遷移先にidを渡す必要がなくミスが減る）※今回は、全てネストした状態で実装したためこのまま
     resources :customers, only: %i(new create show edit update) do
-      resources :appointments, only: %i(new create index show edit update)
+      resources :appointments, only: %i(new create index show edit update destroy)
+      collection do
+        get :search
+      end
     end
 
-    resource :customers, only: [] do
-      get :search
-    end
     resources :real_estates, only: %i(new create edit update)
     resources :questions, only: %i(index show update)
+    resources :comments, only: %i(create)
+
   end
 
   #会員側ルーティング設定
   scope module: :public do
     root "homes#top"
-
+    #下記、「get 'homes/about'」と同義（今回の場合はどちらでも良い）
     resource :homes, only: [] do
       get :about
     end
@@ -39,6 +42,7 @@ Rails.application.routes.draw do
       patch :withdraw
       resources :appointments, only: %i(index show)
     end
+
     resources :questions, only: %i(create index show)
   end
 

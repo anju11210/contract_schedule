@@ -3,6 +3,13 @@
   <div class="col-md-10 mt-5">
     <table class="table">
       <tbody>
+        <%= flash[:notice] %>
+        <% if admin_signed_in? %>
+          <tr class="brown-border">
+            <th>送信者</th>
+            <td><%= question.customer.last_name + question.customer.first_name %></td>
+          </tr>
+        <% end %>
         <tr class="brown-border">
           <th>件名</th>
           <td><%= question.title %></td>
@@ -11,7 +18,30 @@
           <th>本文</th>
           <td><%= question.body %></td>
         </tr>
+        <% if admin_signed_in? %>
+          <tr class="brown-border">
+            <th>回答状況</th>
+            <td>
+              <%= form_with model: question, url: admin_question_path(question) do |f| %>
+                <%= f.select :status, Question.statuses.keys.map { |k| [t("enums.question.status.#{k}"), k] }, class: "mb-3 sm:mb-0 mr-9 border border-line-200 rounded-[3px] rounded-[3px] py-3 pl-6 w-52 h-12 font-bold" %>
+                <%= f.submit "更新", class:"btn btn-outline-primary btn-sm" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+        <tr>
+          <td>
+            <%= render 'admin/questions/comment_index', question: question %>
+          </td>
+        </tr>
       </tbody>
     </table>
+    <div>
+      <% if admin_signed_in? %>
+        <%= link_to "ご意見・ご質問一覧へ戻る", admin_questions_path, class: "btn btn-outline-dark" %>
+      <% else %>
+        <%= link_to "ご意見・ご質問一覧へ戻る", questions_path, class: "btn btn-outline-dark" %>
+      <% end %>
+    </div>
   </div>
 </div>

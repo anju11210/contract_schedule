@@ -10,7 +10,7 @@
 
         <tr class="brown-border">
           <th>日時</th>
-  	      <td><%= appointment.date %><%= appointment.time %></td>
+  	      <td><%= l(appointment.date, format: :customize) %><%= l(appointment.time, format: :customize) %></td>
   	    </tr>
 
   	    <tr class="brown-border">
@@ -190,9 +190,13 @@
         <div>
           <%= link_to "編集", edit_admin_customer_appointment_path(customer, appointment), class: "btn btn-outline-primary" %>
         </div>
+        <div class="col-1"></div>
+        <div>
+          <%= link_to "削除", admin_customer_appointment_path(customer), method: :delete, class: "btn btn-outline-danger", "data-confirm" => "本当に削除しますか？" %>
+        </div>
       <% else %>
         <div>
-          <%= link_to "スケジュール一覧へ戻る", customer_appointments_path(@customer.id), class: "btn btn-outline-dark" %>
+          <%= link_to "スケジュール一覧へ戻る", customer_appointments_path(@customer), class: "btn btn-outline-dark" %>
         </div>
       <% end %>
     </div>

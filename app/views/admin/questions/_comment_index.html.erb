@@ -1,0 +1,10 @@
+<table>
+  <tbody>
+      <% question.comments.each do |comment| %>
+      <tr>
+        <th>ご回答</th>
+        <td><%= comment.body %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

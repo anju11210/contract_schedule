@@ -1,4 +1,6 @@
 class Admin::RealEstatesController < ApplicationController
+  before_action :authenticate_admin!
+
   def new
     @real_estate = RealEstate.new
     #パスにidは必要ないが、customer_idは渡す必要があるため、formatで記述

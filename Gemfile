@@ -72,3 +72,5 @@ gem 'devise'
 gem "enum_help"
 
 gem 'kaminari'
+
+gem 'devise-i18n'

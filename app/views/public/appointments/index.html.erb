@@ -4,9 +4,19 @@
       <h2 style="padding:20px;">取引物件</h2>
       <%= render 'admin/real_estates/real_estate_info', real_estate: @real_estate %>
       <h2 style="padding:10px;">ご意見・ご質問</h2>
+      <% if @question.errors.any? %>
+        <%= @question.errors.count %>件のエラーが発生しました
+        <ul>
+          <% @question.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%= flash[:notice] %>
       <%= render 'public/questions/question_new', question: @question %>
     </div>
     <div class = "col-md-8 offset-md-1">
+      <h2>お取引ご進捗：<%= @customer.ja_status %></h2>
       <h2 style="padding:20px;">スケジュール</h2>
       <%= render 'admin/appointments/appointments_index', appointments: @appointments, customer: @customer %>
     </div>
