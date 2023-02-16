@@ -21,5 +21,6 @@ module Portfolio
 
     #railsアプリケーションの日本語対応化
     config.i18n.default_locale = :ja
+    config.i18n.available_locales = :ja
   end
 end

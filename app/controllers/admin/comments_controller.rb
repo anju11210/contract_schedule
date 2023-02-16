@@ -3,11 +3,14 @@ class Admin::CommentsController < ApplicationController
 
   def create
     @question = Question.find(params[:id])
-    comment = Comment.new(comment_params)
+    @comment = Comment.new(comment_params)
     #3行目で取得しているquestionのidを、6行目で代入している（ヒドゥンを使う方法と結果は同じ）
-    comment.question_id = @question.id
-    comment.save
-    redirect_to admin_question_path(@question.id)
+    @comment.question_id = @question.id
+    if @comment.save
+      redirect_to admin_question_path(@question.id)
+    else
+      render 'admin/questions/show'
+    end
   end
 
   private

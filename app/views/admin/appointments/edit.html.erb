@@ -21,6 +21,7 @@
     </div>
     <div class='col-sm-8 px-sm-0 offset-sm-1'>
       <h2>【登録】スケジュール</h2>
+      <%= render 'admin/appointments/errors_appointment', appointment: @appointment %>
     </div>
 
     <%= form_with model: @appointment, url: admin_customer_appointment_path(@customer) do |f| %>

@@ -12,19 +12,41 @@
 
       <% if @real_estate.blank? %>
         <div class = "row">
-          <%= link_to "新規登録", new_admin_real_estate_path(@customer.id), class: "btn btn-outline-primary btn-block edit_user_69737" %>
+          <%= link_to "新規登録", new_admin_real_estate_path(@customer), class: "btn btn-outline-primary btn-block edit_user_69737" %>
         </div>
       <% end %>
 
       <h2 style="padding:20px;">買主</h2>
       <%= render 'admin/customers/customer_info', customer: @customer %>
       <div class = "row">
-        <%= link_to "詳細", admin_customer_path(@customer.id), class: "btn btn-outline-secondary btn-block edit_user_69737" %>
+        <%= link_to "詳細", admin_customer_path(@customer), class: "btn btn-outline-secondary btn-block edit_user_69737" %>
       </div>
     </div>
     <div class = "col-md-8 offset-md-1">
       <h2 style="padding:20px;">スケジュール</h2>
       <%= render 'admin/appointments/appointments_index', appointments: @appointments, customer: @customer %>
+      <%= month_calendar(attribute: :date, events: @appointments) do |date, appointments| %>
+<%# binding.pry %>
+  <%= date.day %>
+
+  <% appointments.each do |appointment| %>
+    <div>
+      <%= link_to appointment.name, admin_customer_appointment_path(appointment.customer, appointment) %>
+    </div>
+  <% end %>
+<% end %>
     </div>
   </div>
 </div>
+
+
+<%= month_calendar(attribute: :date, events: @appointments) do |date, appointments| %>
+<%# binding.pry %>
+  <%= date.day %>
+
+  <% appointments.each do |appointment| %>
+    <div>
+      <%= link_to appointment.name, admin_customer_appointment_path(appointment.customer, appointment) %>
+    </div>
+  <% end %>
+<% end %>

@@ -10,7 +10,7 @@
 
         <tr class="brown-border">
           <th>日時</th>
-  	      <td><%= l(appointment.date, format: :customize) %><%= l(appointment.time, format: :customize) %></td>
+  	      <td><%= l(appointment.date, format: :customize) if appointment.date %><%= l(appointment.time, format: :customize) if appointment.time %></td>
   	    </tr>
 
   	    <tr class="brown-border">

@@ -21,14 +21,7 @@
     </div>
     <div class='col-sm-8 px-sm-0 offset-sm-1'>
       <h2 style="padding:20px;">【登録】スケジュール</h2>
-      <% if @appointment.errors.any? %>
-        <%= @appointment.errors.count %>件のエラーが発生しました
-        <ul>
-          <% @appointment.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
+      <%= render 'admin/appointments/errors_appointment', appointment: @appointment %>
     </div>
     <%= form_with model: @appointment, url: admin_customer_appointments_path(@customer) do |f| %>
       <!--customer_idはURLでも渡しているが、hiddenで書くことでストロングパラメータから一括で取ってくることができる-->

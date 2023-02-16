@@ -67,10 +67,20 @@ gem "net-smtp"
 gem "net-pop"
 gem "net-imap"
 
+#devise導入
 gem 'devise'
 
+#enum導入
 gem "enum_help"
 
+#ページネーション導入
 gem 'kaminari'
 
+#devise表示（フラッシュメッセージ等）日本語化
 gem 'devise-i18n'
+
+#カレンダー導入
+gem 'simple_calendar', '~> 2.0'
+
+#カレンダー日本語化
+gem 'rails-i18n'

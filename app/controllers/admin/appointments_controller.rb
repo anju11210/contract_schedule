@@ -43,9 +43,9 @@ class Admin::AppointmentsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @appointment = Appointment.find(params[:id])
     if @appointment.update(appointment_params)
-    redirect_to admin_customer_appointment_path(@customer.id)
+      redirect_to admin_customer_appointment_path(@customer.id)
     else
-    render :edit
+      render :edit
     end
   end
 

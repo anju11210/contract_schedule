@@ -4,14 +4,7 @@
       <h2 style="padding:20px;">取引物件</h2>
       <%= render 'admin/real_estates/real_estate_info', real_estate: @real_estate %>
       <h2 style="padding:10px;">ご意見・ご質問</h2>
-      <% if @question.errors.any? %>
-        <%= @question.errors.count %>件のエラーが発生しました
-        <ul>
-          <% @question.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
+      <%= render 'public/questions/errors_question', question: @question %>
       <%= flash[:notice] %>
       <%= render 'public/questions/question_new', question: @question %>
     </div>
@@ -22,3 +15,14 @@
     </div>
   </div>
 </div>
+
+<!--attribute：appointmentのdateとカレンダーのdateを対応させる-->
+<%= month_calendar(attribute: :date, events: @appointments) do |date, appointments| %>
+  <%= date.day %>
+
+  <% appointments.each do |appointment| %>
+    <div>
+      <%= link_to appointment.name, admin_customer_appointment_path(appointment.customer, appointment) %>
+    </div>
+  <% end %>
+<% end %>

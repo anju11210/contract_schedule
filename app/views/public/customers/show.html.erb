@@ -7,46 +7,7 @@
 
   <div class="row">
     <div class="offset-sm-4 col-sm-4">
-      <table class="table table-borderless table-hover">
-        <tbody>
-          <tr>
-            <th>氏名</th>
-            <td></td>
-            <td>
-    		    	<%= @customer.last_name %>
-    		    	<%= @customer.first_name %>
-  		      </td>
-          </tr>
-          <tr class="brown-border">
-  	        <th>フリガナ</th>
-  		      <td></td>
-    	      <td>
-    		    	<%= @customer.last_name_kana %>
-    		    	<%= @customer.first_name_kana %>
-    	    	</td>
-    	    </tr>
-    	    <tr class="brown-border">
-    	      <th>住所</th>
-    	      <td></td>
-    	      <td><%= @customer.address %></td>
-    	    </tr>
-    	    <tr class="brown-border">
-    	      <th>電話番号</th>
-    	      <td></td>
-    	      <td><%= @customer.phone_number %></td>
-    	    </tr>
-    	    <tr class="brown-border">
-    	      <th>メールアドレス</th>
-    	      <td></td>
-    	      <td><%= @customer.email %></td>
-    	    </tr>
-    	    <tr class="brown-border">
-    	      <th>進捗</th>
-    	      <td></td>
-    	      <td><%= @customer.status %></td>
-    	    </tr>
-  	    </tbody>
-  	  </table>
+      <%= render 'admin/customers/customer_show', customer: @customer %>
   	  <div class="row form-group">
   	    <div class="col-1"></div>
   	    <div>

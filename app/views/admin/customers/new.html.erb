@@ -2,14 +2,7 @@
   <div class="row my-3">
     <div class='col-sm-8 px-sm-0 offset-sm-1'>
       <h2>【登録】買主情報</h2>
-      <% if @customer.errors.any? %>
-        <%= @customer.errors.count %>件のエラーが発生しました
-        <ul>
-          <% @customer.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      <% end %>
+      <%= render 'admin/customers/errors_customer', customer: @customer %>
     </div>
   </div>
   <!--下記のようなモデル指定方法で、railsが自動でurlを判断してくれるとのこと（理解が浅い）-->

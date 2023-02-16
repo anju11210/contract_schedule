@@ -3,7 +3,6 @@ class Public::AppointmentsController < ApplicationController
 
   def index
     @customer = Customer.find(params[:customer_id])
-    #
     @appointments = @customer.appointments.where("date >= ?", Date.today)
     @question = Question.new
     @real_estate = @customer.real_estate
