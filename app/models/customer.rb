@@ -8,14 +8,13 @@ class Customer < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_one :real_estate
 
-  validates :last_name,  presence: true
+  validates :last_name, presence: true
   validates :first_name, presence: true
-  # カタカナ制限
-  validates :last_name_kana,  presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: :katakana}
+  validates :last_name_kana, presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: :katakana}
   validates :first_name_kana, presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: :katakana}
   validates :address, presence: true
   validates :phone_number, presence: true, format: {with: /\A\d{10}$|^\d{11}\z/, message: :phone_number_digit}
-  validates :email,  presence: true
+  validates :email, presence: true
   validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :password_confirmation, presence: true, length: { minimum: 6 }, on: :create
 
@@ -44,7 +43,7 @@ class Customer < ApplicationRecord
     wait_third_person: 21,
   }
 
-  #進捗ステータスのビュー上の記述を簡潔にする
+  #進捗ステータスを表示させるビュー上の記述を簡潔にする
   def ja_status
     Customer.statuses_i18n[status]
   end

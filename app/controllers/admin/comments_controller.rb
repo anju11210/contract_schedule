@@ -7,7 +7,7 @@ class Admin::CommentsController < ApplicationController
     #3行目で取得しているquestionのidを、6行目で代入している（ヒドゥンを使う方法と結果は同じ）
     @comment.question_id = @question.id
     if @comment.save
-      redirect_to admin_question_path(@question.id)
+      redirect_to admin_question_path(@question)
     else
       render 'admin/questions/show'
     end

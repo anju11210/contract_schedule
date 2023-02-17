@@ -13,7 +13,7 @@ class Admin::AppointmentsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @appointment = Appointment.new(appointment_params)
     if @appointment.save
-      redirect_to admin_customer_appointments_path(@customer.id)
+      redirect_to admin_customer_appointments_path(@customer)
     else
       render :new
     end
@@ -43,7 +43,7 @@ class Admin::AppointmentsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @appointment = Appointment.find(params[:id])
     if @appointment.update(appointment_params)
-      redirect_to admin_customer_appointment_path(@customer.id)
+      redirect_to admin_customer_appointment_path(@customer)
     else
       render :edit
     end
@@ -53,7 +53,7 @@ class Admin::AppointmentsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
-    redirect_to admin_customer_appointments_path(@customer.id)
+    redirect_to admin_customer_appointments_path(@customer)
   end
 
   private

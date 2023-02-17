@@ -3,7 +3,7 @@ class Admin::RealEstatesController < ApplicationController
 
   def new
     @real_estate = RealEstate.new
-    #パスにidは必要ないが、customer_idは渡す必要があるため、formatで記述
+    #パスにidは必要ないが、物件と会員を紐づけるためにcustomer_idは渡す必要があるため、formatで記述
     @customer = Customer.find(params[:format])
   end
 
@@ -11,7 +11,7 @@ class Admin::RealEstatesController < ApplicationController
     @customer = Customer.find(real_estate_params[:customer_id])
     @real_estate = RealEstate.new(real_estate_params)
     if @real_estate.save
-      redirect_to admin_customer_appointments_path(@customer.id)
+      redirect_to admin_customer_appointments_path(@customer)
     else
       render :new
     end

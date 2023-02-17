@@ -25,16 +25,6 @@
     <div class = "col-md-8 offset-md-1">
       <h2 style="padding:20px;">スケジュール</h2>
       <%= render 'admin/appointments/appointments_index', appointments: @appointments, customer: @customer %>
-      <%= month_calendar(attribute: :date, events: @appointments) do |date, appointments| %>
-<%# binding.pry %>
-  <%= date.day %>
-
-  <% appointments.each do |appointment| %>
-    <div>
-      <%= link_to appointment.name, admin_customer_appointment_path(appointment.customer, appointment) %>
-    </div>
-  <% end %>
-<% end %>
     </div>
   </div>
 </div>

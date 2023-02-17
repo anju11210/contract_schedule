@@ -1,13 +1,13 @@
 class Public::QuestionsController < ApplicationController
   before_action :authenticate_customer!
+  #before_action :thanks
 
   def create
     @question = Question.new(question_params)
     @question.customer_id = current_customer.id
     if @question.save
       flash[:notice] = "ご意見・ご質問を送信いたしました"
-      redirect_to
-      customer_appointments_path(@question.customer.id)
+      redirect_to customer_appointments_path(@question.customer.id)
     else
       #request.referer：前のページのurlが入る → railsのrouteから情報を取り出して、pathに渡す（今回は、customerのid情報を渡すために記述）
       path = Rails.application.routes.recognize_path(request.referer)
@@ -23,7 +23,7 @@ class Public::QuestionsController < ApplicationController
       end
       #pathに、controllerとactionの内容を代入している（indexとshowの場合があるため）
       render "#{path[:controller]}/#{path[:action]}"
-      #render 'public/appointments/index'（showがない場合は、この記述でもok）
+      #showがない場合は「render 'public/appointments/index'」でもok
     end
   end
 
@@ -36,7 +36,7 @@ class Public::QuestionsController < ApplicationController
   def show
     @customer = current_customer
     @question = Question.find(params[:id])
-    #@question.comments.update_all(追加するカラム名: ture)
+    #@question.comments.update_all(confirmation_status: true)
   end
 
   private

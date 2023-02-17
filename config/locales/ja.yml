@@ -88,3 +88,12 @@ ja:
         password_confirmation: パスワード（確認用）
         is_active: 退会状況
         status: 進捗状況
+      appointment:
+        name: 手続き名
+      comment:
+        body: 本文
+      question:
+        title: 件名
+      real_estate:
+        name: 物件名
+        address: 所在地

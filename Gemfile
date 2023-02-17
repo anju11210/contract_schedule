@@ -82,5 +82,5 @@ gem 'devise-i18n'
 #カレンダー導入
 gem 'simple_calendar', '~> 2.0'
 
-#カレンダー日本語化
+#カレンダー日本語化のため
 gem 'rails-i18n'

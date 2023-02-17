@@ -5,6 +5,13 @@
         <th>ご回答</th>
         <td><%= comment.body %></td>
       </tr>
+        <%# if admin_signed_in? %>
+          <%# if question.comments.confirmation_status == ture %>
+            <%#= "既読" %>
+          <%# else %>
+            <%#= "未読" %>
+          <%# end %>
+        <%# end %>
       <% end %>
   </tbody>
 </table>

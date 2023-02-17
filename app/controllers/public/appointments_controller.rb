@@ -1,5 +1,6 @@
 class Public::AppointmentsController < ApplicationController
   before_action :authenticate_customer!
+  #before_action :thanks
 
   def index
     @customer = Customer.find(params[:customer_id])

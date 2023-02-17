@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2023_02_07_155454) do
     t.text "body", null: false
     t.boolean "checked", default: false, null: false
     t.integer "question_id"
+    t.boolean "confirmation_status", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_comments_on_question_id"
