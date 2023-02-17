@@ -3,7 +3,7 @@
     <tr>
       <th>送信日時</th>
       <th>件名</th>
-      <th></th>
+      <th style="text-align:center">ご対応状況</th>
       <% if admin_signed_in? %>
         <th style="text-align:center">送信者</th>
       <% end %>
@@ -15,7 +15,7 @@
     <tr>
       <td><%= question.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
       <td><%= question.title %></td>
-      <td><%= question.ja_status %></td>
+      <td style="text-align:center"><%= question.ja_status %></td>
       <% if admin_signed_in? %>
         <td><%= question.customer.last_name + question.customer.first_name %></td>
         <td><%= link_to "詳細", admin_question_path(question.id) %></td>

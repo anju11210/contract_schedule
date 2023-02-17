@@ -6,7 +6,7 @@
 
       <% if @real_estate.present? %>
         <div class = "row">
-          <%= link_to "編集", edit_admin_real_estate_path(@real_estate.id), class: "btn btn-outline-secondary btn-block edit_user_69737" %>
+          <%= link_to "編集", edit_admin_real_estate_path(@real_estate), class: "btn btn-outline-secondary btn-block edit_user_69737" %>
         </div>
       <% end %>
 
@@ -25,18 +25,8 @@
     <div class = "col-md-8 offset-md-1">
       <h2 style="padding:20px;">スケジュール</h2>
       <%= render 'admin/appointments/appointments_index', appointments: @appointments, customer: @customer %>
+      <h5 style="padding:20px;">カレンダー</h5>
+      <%= render 'admin/appointments/month_calendar', appointments: @appointments %>
     </div>
   </div>
 </div>
-
-
-<%= month_calendar(attribute: :date, events: @appointments) do |date, appointments| %>
-<%# binding.pry %>
-  <%= date.day %>
-
-  <% appointments.each do |appointment| %>
-    <div>
-      <%= link_to appointment.name, admin_customer_appointment_path(appointment.customer, appointment) %>
-    </div>
-  <% end %>
-<% end %>

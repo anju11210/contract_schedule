@@ -3,35 +3,35 @@
   <div class="col-md-10 mt-5">
     <table class="table table-borderless table-hover">
       <tbody>
-        <tr class="brown-border">
+        <tr>
           <th>手続き名</th>
           <td><%= appointment.name %></td>
         </tr>
 
-        <tr class="brown-border">
+        <tr>
           <th>日時</th>
   	      <td><%= l(appointment.date, format: :customize) if appointment.date %><%= l(appointment.time, format: :customize) if appointment.time %></td>
   	    </tr>
 
-  	    <tr class="brown-border">
+  	    <tr>
   	      <th>場所</th>
   	      <td><%= appointment.place_name %></td>
   	    </tr>
 
-  	    <tr class="brown-border">
+  	    <tr>
   	      <th>住所（場所）</th>
   	      <td><%= appointment.place_address %></td>
   	    </tr>
 
         <% if appointment.preparation_thing.present? %>
-          <tr class="brown-border">
+          <tr>
             <th>お持ちもの</th>
             <td><%= appointment.preparation_thing %></td>
           </tr>
         <% end %>
 
         <% if appointment.description_1.present? %>
-          <tr class="brown-border">
+          <tr>
             <th>備考</th>
             <td><%= appointment.description_1 %></td>
           </tr>
@@ -39,127 +39,125 @@
       </tbody>
     </table>
 
-    <h3>ご用意いただく金員</h3>
     <table class="table table-borderless table-hover">
       <tbody>
         <% if appointment.earnest_money != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>手付金</th>
-    	      <td><%= appointment.earnest_money.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.earnest_money.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
-    	    </tr>
   	    <% end %>
 
         <% if appointment.brokerage_fee != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>仲介手数料</th>
-    	      <td><%= appointment.brokerage_fee.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.brokerage_fee.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
         <% if appointment.revenue_stamp_fee != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>収入印紙代</th>
-    	      <td><%= appointment.revenue_stamp_fee.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.revenue_stamp_fee.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
   	    <% if appointment.remaining_amount != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>売買残金</th>
-    	      <td><%= appointment.remaining_amount.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.remaining_amount.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
         <% end %>
 
   	    <% if appointment.real_estate_tax != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>固定資産税清算金</th>
-    	      <td><%= appointment.real_estate_tax.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.real_estate_tax.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
   	    <% if appointment.registration_fee_1 != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>登記費用</br>（司法書士宛）</th>
-    	      <td><%= appointment.registration_fee_1.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.registration_fee_1.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
   	    <% if appointment.registration_fee_2 != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>
     	        登記費用</br>（家屋調査士宛）</th>
-    	      <td><%= appointment.registration_fee_2.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.registration_fee_2.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
 
   	    <% if appointment.renovation_fee != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>リフォーム費用</th>
-    	      <td><%= appointment.renovation_fee.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.renovation_fee.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
   	    <% if appointment.apartment_management_fee != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>管理費・積立金清算金</th>
-    	      <td><%= appointment.apartment_management_fee.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.apartment_management_fee.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
   	    <% if appointment.other_expense_1 != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>その他費用（１）</th>
-    	      <td><%= appointment.other_expense_1.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.other_expense_1.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
   	    <% if appointment.other_expense_2 != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>その他費用（２）</th>
-    	      <td><%= appointment.other_expense_2.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.other_expense_2.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
         <% if appointment.other_expense_3 != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>その他費用（３）</th>
-    	      <td><%= appointment.other_expense_3.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.other_expense_3.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
   	    <% if appointment.other_expense_4 != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>その他費用（４）</th>
-    	      <td><%= appointment.other_expense_4.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.other_expense_4.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
   	    <% if appointment.other_expense_5 != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>その他費用（５）</th>
-    	      <td><%= appointment.other_expense_5.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= appointment.other_expense_5.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
 
   	    <% if total != 0 %>
-    	    <tr class="brown-border">
+    	    <tr>
     	      <th>合計</th>
-    	      <td><%= total.to_s(:delimited, delimiter: ',') %></td>
+    	      <td style="text-align:right"><%= total.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
   	    <% end %>
@@ -169,11 +167,8 @@
     <% if appointment.description_2.present? %>
       <table class="table table-borderless table-hover">
         <tbody>
-    	    <tr class="brown-border">
-    	      <th>
-              備考</br>
-              （金員について）
-            </th>
+    	    <tr>
+    	      <th>備考（金員について）</th>
     	      <td><%= appointment.description_2 %></td>
     	    </tr>
         </tbody>

@@ -97,3 +97,7 @@ ja:
       real_estate:
         name: 物件名
         address: 所在地
+
+  simple_calendar:
+    previous: "<<"
+    next: ">>"

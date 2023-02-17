@@ -3,16 +3,19 @@
     <div class='col-md-3'>
       <h2 style="padding:20px;">取引物件</h2>
       <%= render 'admin/real_estates/real_estate_info', real_estate: @real_estate %>
+
       <% if @real_estate.present? %>
         <div class = "row">
           <%= link_to "編集", edit_admin_real_estate_path(@real_estate.id), class: "btn btn-outline-secondary btn-block edit_user_69737" %>
         </div>
       <% end %>
+
       <% if @real_estate.blank? %>
         <div class = "row">
           <%= link_to "新規登録", new_admin_real_estate_path(@customer.id), class: "btn btn-outline-primary btn-block edit_user_69737" %>
         </div>
       <% end %>
+
       <h2 style="padding:20px;">買主</h2>
       <%= render 'admin/customers/customer_info', customer: @customer %>
       <div class = "row">

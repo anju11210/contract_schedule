@@ -9,20 +9,11 @@
       <%= render 'public/questions/question_new', question: @question %>
     </div>
     <div class = "col-md-8 offset-md-1">
-      <h2>お取引ご進捗：<%= @customer.ja_status %></h2>
+      <h2 style="padding:20px;">お取引ご進捗：<%= @customer.ja_status %></h2>
       <h2 style="padding:20px;">スケジュール</h2>
       <%= render 'admin/appointments/appointments_index', appointments: @appointments, customer: @customer %>
+      <h5 style="padding:20px;">カレンダー</h5>
+      <%= render 'admin/appointments/month_calendar', appointments: @appointments %>
     </div>
   </div>
 </div>
-
-<!--attribute：appointmentのdateとカレンダーのdateを対応させる-->
-<%= month_calendar(attribute: :date, events: @appointments) do |date, appointments| %>
-  <%= date.day %>
-
-  <% appointments.each do |appointment| %>
-    <div>
-      <%= link_to appointment.name, admin_customer_appointment_path(appointment.customer, appointment) %>
-    </div>
-  <% end %>
-<% end %>

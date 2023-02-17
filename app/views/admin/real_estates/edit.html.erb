@@ -1,35 +1,33 @@
 <div class="container mt-5 mb-5">
   <div class="row my-3">
     <div class='col-sm-8 px-sm-0 offset-sm-1'>
-      <h2>【編集】物件情報</h2>
+      <h2 style="padding:20px;">【編集】物件情報</h2>
       <%= render 'admin/real_estates/errors_real_estate', real_estate: @real_estate %>
     </div>
   </div>
   <%= form_with model: [:admin, @real_estate] do |f| %>
-    <div class="row form-group">
-      <div class="col-2 offset-md-1"><%= f.label "物件名" %></div>
-      <div class="col-1 text-right pr-0"></div>
-      <div class="col-3"><%= f.text_field :name, :size => "50" %></div>
-    </div>
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <th><%= f.label "物件名" %></th>
+          <td><%= f.text_field :name, :size => "50" %></td>
+        </tr>
 
-    <div class="row form-group">
-      <div class="col-2 offset-md-1"><%= f.label "所在地" %></div>
-      <div class="col-1 text-right pr-0"></div>
-      <div class="col-1"><%= f.text_field :address, :size => "50" %></div>
-    </div>
+        <tr>
+          <th><%= f.label "所在地" %></th>
+          <td><%= f.text_field :address, :size => "50" %></td>
+        </tr>
 
-    <div class="row form-group">
-      <div class="col-3 offset-md-1"><%= f.label "成約価格" %></div>
-      <div class="col-3"><%= f.text_field :price, :size => "10" %>万円</div>
-    </div>
+        <tr>
+          <th><%= f.label "成約価格" %></th>
+          <td><%= f.text_field :price, :size => "10" %>万円</td>
+        </div>
 
-    <div class="row form-group">
-      <div class="col-2 offset-md-1 mt-3 mb-5">
-        <%= link_to "戻る", admin_customer_appointments_path(@real_estate), class: "btn btn-outline-dark" %>
-      </div>
-      <div class="col-2 offset-md-1 mt-3 mb-5">
-        <%= f.submit "更新", class:"btn btn-outline-primary btn-block mb-1" %>
-      </div>
-    </div>
+        <tr>
+          <td><%= link_to "戻る", admin_customer_appointments_path(@real_estate), class: "btn btn-outline-dark" %></td>
+          <td><%= f.submit "更新", class:"btn btn-outline-primary btn-lg" %></td>
+        </tr>
+      </tbody>
+    </table>
   <% end %>
 </div>

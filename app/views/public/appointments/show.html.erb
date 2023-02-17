@@ -9,7 +9,7 @@
       <%= render 'public/questions/question_new', question: @question %>
     </div>
     <div class = "col-md-8 offset-md-1">
-      <h2>お取引ご進捗：<%= @customer.ja_status %></h2>
+      <h2 style="padding:20px;">お取引ご進捗：<%= @customer.ja_status %></h2>
       <%= render 'admin/appointments/appointment_show', appointment: @appointment, customer: @customer, total: @total %>
     </div>
   </div>

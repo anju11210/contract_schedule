@@ -6,7 +6,7 @@
         <td><%= comment.body %></td>
       </tr>
         <%# if admin_signed_in? %>
-          <%# if question.comments.confirmation_status == ture %>
+          <%# if question.comments.confirmation_status? %>
             <%#= "既読" %>
           <%# else %>
             <%#= "未読" %>

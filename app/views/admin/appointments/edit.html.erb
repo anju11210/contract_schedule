@@ -1,4 +1,4 @@
-<div class="container mt-5 mb-5">
+<div class = "container px-5 px-sm-0">
   <div class = "row">
     <div class='col-md-3'>
       <h2 style="padding:20px;">取引物件</h2>
@@ -19,135 +19,136 @@
         <%= link_to "詳細", admin_customer_path(@customer.id), class: "btn btn-outline-secondary btn-block edit_user_69737" %>
       </div>
     </div>
-    <div class='col-sm-8 px-sm-0 offset-sm-1'>
-      <h2>【登録】スケジュール</h2>
+
+    <div class = "col-md-8 offset-md-1">
+      <h2 style="padding:20px;">【登録】スケジュール</h2>
       <%= render 'admin/appointments/errors_appointment', appointment: @appointment %>
+      <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10 mt-5">
+          <%= form_with model: @appointment, url: admin_customer_appointment_path(@customer) do |f| %>
+          <!--URLでも渡しているが、hiddenで書くことでストロングパラメータからcustomer_idを一括で取ってくることができる-->
+          <%= f.hidden_field :customer_id, value: @customer.id %>
+            <table class="table table-borderless">
+              <tbody>
+                <tr>
+                  <th><%= f.label "手続き名" %></th>
+                  <td><%= f.text_field :name %></td>
+                </tr>
+
+                <tr>
+                  <th><%= f.label "日時" %></th>
+                  <td><%= f.text_field :date, :size => "15", placeholder: "20XX/XX/XX" %><%= f.text_field :time, :size => "15",placeholder: "XX:XX" %></td>
+                </tr>
+
+                <tr>
+                  <th><%= f.label "取引場所" %></th>
+                  <th><%= f.text_field :place_name %></th>
+                </tr>
+
+                <tr>
+                  <th><%= f.label "取引場所住所" %></th>
+                  <td><%= f.text_field :place_address, :size => "40" %></td>
+                </tr>
+
+                <tr>
+                  <th><%= f.label "お持ちもの" %></th>
+                  <td><%= f.text_area :preparation_thing, :size => "30" %></td>
+                </tr>
+
+                <tr>
+                  <th><%= f.label "備考" %></th>
+                  <td><%= f.text_area :description_1, :size => "45" %></td>
+                </tr>
+
+                <tr>
+                  <th><%= f.label "金員" %></th>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "手付金" %></td>
+                  <td><%= f.text_field :earnest_money %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "仲介手数料" %></td>
+                  <td><%= f.text_field :brokerage_fee %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "収入印紙代" %></td>
+                  <td><%= f.text_field :revenue_stamp_fee %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "売買残金" %></td>
+                  <td><%= f.text_field :remaining_amount %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "固定資産税清算金" %></td>
+                  <td><%= f.text_field :real_estate_tax %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "登記費用（司法書士宛）" %></td>
+                  <td><%= f.text_field :registration_fee_1 %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "登記費用（家屋調査士宛）" %></td>
+                  <td><%= f.text_field :registration_fee_2 %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "リフォーム費用" %></td>
+                  <td><%= f.text_field :renovation_fee %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "管理費・積立金清算金" %></td>
+                  <td><%= f.text_field :apartment_management_fee %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "その他費用（１）" %></td>
+                  <td><%= f.text_field :other_expense_1 %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "その他費用（２）" %></td>
+                  <td><%= f.text_field :other_expense_2 %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "その他費用（３）" %></td>
+                  <td><%= f.text_field :other_expense_3 %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "その他費用（４）" %></td>
+                  <td><%= f.text_field :other_expense_4 %> 円</td>
+                </tr>
+
+                <tr>
+                  <td><%= f.label "その他費用（５）" %></td>
+                  <td><%= f.text_field :other_expense_5 %> 円</td>
+                </tr>
+
+                <tr>
+                  <th><%= f.label "備考（金員に関する内容）" %></th>
+                  <td><%= f.text_area :description_2, :size => "45" %></td>
+                </tr>
+
+                <tr>
+                  <td><%= link_to "戻る", admin_customer_appointment_path(@customer, @appointment), class: "btn btn-outline-dark" %></td>
+                  <td><%= f.submit "更新", class:"btn btn-outline-primary btn-lg" %></td>
+                </tr>
+              </tbody>
+            </table>
+          <% end %>
+        </div>
+      </div>
     </div>
-
-    <%= form_with model: @appointment, url: admin_customer_appointment_path(@customer) do |f| %>
-      <!--URLでも渡しているが、hiddenで書くことでストロングパラメータからcustomer_idを一括で取ってくることができる-->
-      <%= f.hidden_field :customer_id, value: @customer.id %>
-      <div class="row form-group">
-        <div class="col-2 offset-md-1"><%= f.label "手続き名" %></div>
-        <div class="col-1 text-right pr-0"></div>
-        <div class="col-3"><%= f.text_field :name, :size => "30" %></div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-2 offset-md-1"><%= f.label "日時" %></div>
-        <div class="col-1 text-right pr-0"></div>
-        <div class="col-1"><%= f.text_field :date, :size => "15", placeholder: "20XX/XX/XX" %></div>
-        <div class="col-1 text-right pr-0"></div>
-        <div class="col-1"><%= f.text_field :time, :size => "10", placeholder: "XX時XX分" %></div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "取引場所" %></div>
-        <div class="col-3"><%= f.text_field :place_name %></div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "取引場所住所" %></div>
-        <div class="col-3"><%= f.text_field :place_address, :size => "40" %></div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "お持ちもの" %></div>
-        <div class="col-3"><%= f.text_area :preparation_thing, :size => "30" %></div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "備考" %></div>
-        <div class="col-3"><%= f.text_area :description_1, :size => "50" %></div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><b><%= f.label "金員" %></b></div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "手付金" %></div>
-        <div class="col-3"><%= f.text_field :earnest_money %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "仲介手数料" %></div>
-        <div class="col-3"><%= f.text_field :brokerage_fee %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "収入印紙代" %></div>
-        <div class="col-3"><%= f.text_field :revenue_stamp_fee %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "売買残金" %></div>
-        <div class="col-3"><%= f.text_field :remaining_amount %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "固定資産税清算金" %></div>
-        <div class="col-3"><%= f.text_field :real_estate_tax %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "登記費用（司法書士宛）" %></div>
-        <div class="col-3"><%= f.text_field :registration_fee_1 %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "登記費用（家屋調査士宛）" %></div>
-        <div class="col-3"><%= f.text_field :registration_fee_2 %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "リフォーム費用" %></div>
-        <div class="col-3"><%= f.text_field :renovation_fee %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "管理費・積立金清算金" %></div>
-        <div class="col-3"><%= f.text_field :apartment_management_fee %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "その他費用（１）" %></div>
-        <div class="col-3"><%= f.text_field :other_expense_1 %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "その他費用（２）" %></div>
-        <div class="col-3"><%= f.text_field :other_expense_2 %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "その他費用（３）" %></div>
-        <div class="col-3"><%= f.text_field :other_expense_3 %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "その他費用（４）" %></div>
-        <div class="col-3"><%= f.text_field :other_expense_4 %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "その他費用（５）" %></div>
-        <div class="col-3"><%= f.text_field :other_expense_5 %> 円</div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-3 offset-md-1"><%= f.label "備考（金員に関する内容）" %></div>
-        <div class="col-3"><%= f.text_area :description_2, :size => "50" %></div>
-      </div>
-
-      <div class="row form-group">
-        <div class="col-2 offset-md-1 mt-3 mb-5">
-          <%= link_to "戻る", admin_customer_appointment_path(@customer.id, @appointment.id), class: "btn btn-outline-dark" %>
-        </div>
-        <div class="col-2 offset-md-1 mt-3 mb-5">
-          <%= f.submit "更新", class:"btn btn-outline-primary btn-block mb-1" %>
-        </div>
-      </div>
-    <% end %>
   </div>
 </div>
