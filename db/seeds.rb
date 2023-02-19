@@ -33,4 +33,37 @@ Customer.find_or_create_by!(email: "sample@two") do |customer|
   customer.password_confirmation = "customer2"
 end
 
+Customer.find_or_create_by!(email: "sample@three") do |customer|
+  customer.first_name = "三郎"
+  customer.last_name = "三"
+  customer.first_name_kana = "サブロウ"
+  customer.last_name_kana = "サン"
+  customer.address = "三県三市三町三番三号サンマンション303号室"
+  customer.phone_number = "33333333333"
+  customer.password = "customer3"
+  customer.password_confirmation = "customer3"
+end
+
+Customer.find_or_create_by!(email: "sample@four") do |customer|
+  customer.first_name = "四郎"
+  customer.last_name = "四"
+  customer.first_name_kana = "シロウ"
+  customer.last_name_kana = "ヨン"
+  customer.address = "四県四市四町四丁目四番四号"
+  customer.phone_number = "44444444444"
+  customer.password = "customer4"
+  customer.password_confirmation = "customer4"
+end
+
+Customer.find_or_create_by!(email: "sample@five") do |customer|
+  customer.first_name = "五郎"
+  customer.last_name = "五"
+  customer.first_name_kana = "ゴロウ"
+  customer.last_name_kana = "ゴ"
+  customer.address = "五県五市五町五番五号505号室"
+  customer.phone_number = "55555555555"
+  customer.password = "customer5"
+  customer.password_confirmation = "customer5"
+end
+
 p "データを作成しました"
