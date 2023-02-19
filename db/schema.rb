@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2023_02_07_155454) do
     t.string "first_name_kana", default: "", null: false
     t.string "last_name_kana", default: "", null: false
     t.string "address", default: "", null: false
-    t.integer "phone_number", null: false
+    t.string "phone_number", default: "", null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.boolean "is_active", default: true, null: false

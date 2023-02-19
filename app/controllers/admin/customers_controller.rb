@@ -7,7 +7,7 @@ class Admin::CustomersController < ApplicationController
 
   def create
     @customer = Customer.new(customer_params)
-    if @customer.save
+    if @customer.save!
       redirect_to admin_root_path
     else
       render :new

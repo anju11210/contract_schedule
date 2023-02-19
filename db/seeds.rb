@@ -19,6 +19,7 @@ Customer.find_or_create_by!(email: "sample@one") do |customer|
   customer.address = "一県一市一区一町一丁目一番一号1111号室"
   customer.phone_number = "11111111111"
   customer.password = "customer1"
+  customer.password_confirmation = "customer1"
 end
 
 Customer.find_or_create_by!(email: "sample@two") do |customer|
@@ -29,6 +30,7 @@ Customer.find_or_create_by!(email: "sample@two") do |customer|
   customer.address = "二県二市二町二番一二号"
   customer.phone_number = "22222222222"
   customer.password = "customer2"
+  customer.password_confirmation = "customer2"
 end
 
 p "データを作成しました"
