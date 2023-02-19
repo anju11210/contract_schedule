@@ -39,7 +39,10 @@
 
                 <tr>
                   <th><%= f.label "日時" %></th>
-                  <td><%= f.text_field :date, :size => "15", placeholder: "20XX/XX/XX" %><%= f.text_field :time, :size => "15", placeholder: "XX:XX" %></td>
+                  <td>
+                    <%= f.date_field :date, size: "15", placeholder: "20XX/XX/XX", min: Date.current %>
+                    <%= f.time_field :time, size: "15", placeholder: "XX:XX" %>
+                  </td>
                 </tr>
 
                 <tr>
@@ -49,17 +52,17 @@
 
                 <tr>
                   <th><%= f.label "取引場所住所" %></th>
-                  <td><%= f.text_field :place_address, :size => "40" %></td>
+                  <td><%= f.text_field :place_address, size: "40" %></td>
                 </tr>
 
                 <tr>
                   <th><%= f.label "お持ちもの" %></th>
-                  <th><%= f.text_area :preparation_thing, :size => "30" %></th>
+                  <th><%= f.text_area :preparation_thing, size: "30" %></th>
                 </tr>
 
                 <tr>
                   <th><%= f.label "備考" %></th>
-                  <td><%= f.text_area :description_1, :size => "45" %></td>
+                  <td><%= f.text_area :description_1, size: "45" %></td>
                 </tr>
 
                 <tr>
@@ -92,12 +95,12 @@
                 </tr>
 
                 <tr>
-                  <td><%= f.label "登記費用（司法書士宛）" %></td>
+                  <td><%= f.label "登記費用(司法書士宛)" %></td>
                   <td><%= f.text_field :registration_fee_1 %> 円</td>
                 </tr>
 
                 <tr>
-                  <td><%= f.label "登記費用（家屋調査士宛）" %></td>
+                  <td><%= f.label "登記費用(家屋調査士宛)" %></td>
                   <td><%= f.text_field :registration_fee_2 %> 円</td>
                 </tr>
 
@@ -138,7 +141,7 @@
 
                 <tr>
                   <th><%= f.label "備考（金員に関する内容）" %></th>
-                  <td><%= f.text_area :description_2, :size => "50" %></td>
+                  <td><%= f.text_area :description_2, size: "45", placeholder: "清算金の計算式etc." %></td>
                 </tr>
 
                 <tr>

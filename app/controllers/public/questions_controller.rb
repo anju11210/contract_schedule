@@ -1,6 +1,6 @@
 class Public::QuestionsController < ApplicationController
   before_action :authenticate_customer!
-  #before_action :thanks
+  before_action :thanks
 
   def create
     @question = Question.new(question_params)
@@ -36,7 +36,8 @@ class Public::QuestionsController < ApplicationController
   def show
     @customer = current_customer
     @question = Question.find(params[:id])
-    #@question.comments.update_all(confirmation_status: true)
+    #update_all：「.」の左側の複数のアクティブレコードに対して使用（一つの場合はupdate
+    @question.comments.update_all(confirmation_status: true)
   end
 
   private

@@ -5,4 +5,8 @@ class Public::HomesController < ApplicationController
 
   def about
   end
+
+  def thanks
+    @customer = current_customer
+  end
 end

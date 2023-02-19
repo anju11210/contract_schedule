@@ -10,22 +10,22 @@
     <table class="table table-borderless">
       <tbody>
         <tr>
-          <th><%= f.label "物件名" %></th>
-          <td><%= f.text_field :name, :size => "70", placeholder: "（例）XXX町XX丁目戸建て・XXXマンションXX号室" %></td>
+          <th style="text-align:right"><%= f.label "物件名" %></th>
+          <td><%= f.text_field :name, size: "70", placeholder: "（例）XXX町XX丁目戸建て・XXXマンションXX号室" %></td>
         </tr>
 
         <tr>
-          <th><%= f.label "所在地" %></th>
-          <td><%= f.text_field :address, :size => "50", placeholder: "都道府県名から入力" %></td>
+          <th style="text-align:right"><%= f.label "所在地" %></th>
+          <td><%= f.text_field :address, size: "50", placeholder: "都道府県名から入力" %></td>
         </tr>
 
         <tr>
-          <th><%= f.label "成約価格" %></th>
-          <td><%= f.text_field :price, :size => "10" %>万円</td>
+          <th style="text-align:right"><%= f.label "成約価格" %></th>
+          <td><%= f.text_field :price, size: "10" %>万円</td>
         </tr>
 
         <tr>
-          <td><%= link_to "戻る", admin_customer_appointments_path(@customer), class: "btn btn-outline-dark" %></td>
+          <td style="text-align:right"><%= link_to "戻る", admin_customer_appointments_path(@customer), class: "btn btn-outline-dark" %></td>
           <td><%= f.submit "新規登録", class:"btn btn-outline-primary btn-lg" %></td>
         </tr>
       </tbody>

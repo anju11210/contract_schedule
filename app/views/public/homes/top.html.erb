@@ -9,7 +9,7 @@
           <% if admin_signed_in? %>
             <%= link_to 'スケジュールを管理する', admin_root_path, class: "btn btn-outline-primary btn-block mb-3" %>
           <% elsif customer_signed_in? %>
-            <%= link_to 'スケジュールを確認する', customer_appointments_path(@customer.id), class: "btn btn-outline-primary btn-block mb-3" %>
+            <%= link_to 'スケジュールを確認する', customer_appointments_path(@customer), class: "btn btn-outline-primary btn-block mb-3" %>
           <% else %>
             <%= link_to 'スケジュールを確認する', new_customer_session_path, class: "btn btn-outline-primary btn-block mb-3" %>
           <% end %>

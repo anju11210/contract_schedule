@@ -9,30 +9,34 @@
     <table class="table table-borderless">
       <tbody>
         <tr>
-          <th><%= f.label "お名前" %></th>
-          <td><%= f.text_field :last_name, :size => "10", placeholder: "姓" %></td>
-          <td><%= f.text_field :first_name, :size => "10", placeholder: "名" %></td>
+          <th style="text-align:right"><%= f.label "お名前" %></th>
+          <td>
+            <%= f.text_field :last_name, size: "10", placeholder: "姓" %>
+            <%= f.text_field :first_name, size: "10", placeholder: "名" %>
+          </td>
         </tr>
 
         <tr>
-          <th><%= f.label "フリガナ" %></th>
-          <td><%= f.text_field :last_name_kana, :size => "10", placeholder: "セイ" %></td>
-          <td><%= f.text_field :first_name_kana, :size => "10", placeholder: "メイ" %></td>
+          <th style="text-align:right"><%= f.label "フリガナ" %></th>
+          <td>
+            <%= f.text_field :last_name_kana, size: "10", placeholder: "セイ" %>
+            <%= f.text_field :first_name_kana, size: "10", placeholder: "メイ" %>
+          </td>
         </tr>
 
         <tr>
-          <th><%= f.label "現住所" %></th>
-          <td><%= f.text_field :address, :size => "40", placeholder: "都道府県名から入力" %></td>
+          <th style="text-align:right"><%= f.label "現住所" %></th>
+          <td><%= f.text_field :address, size: "40", placeholder: "都道府県名から入力" %></td>
         </tr>
 
         <tr>
-          <th><%= f.label "電話番号" %></th>
+          <th style="text-align:right"><%= f.label "電話番号" %></th>
           <td><%= f.text_field :phone_number, placeholder: "ハイフンなし" %></td>
         </tr>
 
         <tr>
-          <th><%= f.label "メールアドレス" %></th>
-          <td><%= f.email_field :email, :size => "25", placeholder: "当サイトログイン時に使用" %></td>
+          <th style="text-align:right"><%= f.label "メールアドレス" %></th>
+          <td><%= f.email_field :email, size: "25", placeholder: "当サイトログイン時に使用" %></td>
         </tr>
 
         <!--<tr>-->
@@ -51,7 +55,7 @@
         <!--</tr>-->
 
         <tr>
-          <td><%= link_to "戻る", customer_path, class: "btn btn-outline-dark" %></td>
+          <td  style="text-align:right"><%= link_to "戻る", customer_path, class: "btn btn-outline-dark" %></td>
           <td><%= f.submit "更新", class:"btn btn-outline-primary btn-lg" %></td>
         </tr>
       </tbody>
