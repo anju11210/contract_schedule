@@ -1,64 +1,66 @@
 <div class="container mt-5 mb-5">
   <div class="row my-3">
     <div class='col-sm-8 px-sm-0 offset-sm-1'>
-      <h2 style="padding:20px;">【編集】買主情報</h2>
+      <h2 style="padding:20px; text-align:center;">【編集】買主情報</h2>
       <%= render 'admin/customers/errors_customer', customer: @customer %>
     </div>
   </div>
-  <%= form_with model: [:admin, @customer] do |f| %>
-    <table class="table table-borderless">
-      <tbody>
-        <tr>
-          <th style="text-align:right"><%= f.label "お名前" %></th>
-          <td>
-            <%= f.text_field :last_name, size: "10", placeholder: "姓" %>
-            <%= f.text_field :first_name, size: "10", placeholder: "名" %>
+  <div class="d-flex justify-content-center p-3">
+    <%= form_with model: [:admin, @customer] do |f| %>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th style="width: 140px;"><%= f.label "お名前" %></th>
+            <td>
+              <%= f.text_field :last_name, size: "10", placeholder: "姓" %>
+              <%= f.text_field :first_name, size: "10", placeholder: "名" %>
+            </td>
+          </tr>
+
+          <tr>
+            <th style="width: 140px;"><%= f.label "フリガナ" %></th>
+            <td>
+              <%= f.text_field :last_name_kana, size: "10", placeholder: "セイ" %>
+              <%= f.text_field :first_name_kana, size: "10", placeholder: "メイ" %>
           </td>
-        </tr>
+          </tr>
 
-        <tr>
-          <th style="text-align:right"><%= f.label "フリガナ" %></th>
-          <td>
-            <%= f.text_field :last_name_kana, size: "10", placeholder: "セイ" %>
-            <%= f.text_field :first_name_kana, size: "10", placeholder: "メイ" %>
-        </td>
-        </tr>
+          <tr>
+            <th style="width: 140px;"><%= f.label "現住所" %></th>
+            <td><%= f.text_field :address, size: "40", placeholder: "都道府県名から入力" %></td>
+          </tr>
 
-        <tr>
-          <th style="text-align:right"><%= f.label "現住所" %></th>
-          <td><%= f.text_field :address, size: "40", placeholder: "都道府県名から入力" %></td>
-        </tr>
+          <tr>
+            <th style="width: 140px;"><%= f.label "電話番号" %></th>
+            <td><%= f.text_field :phone_number, placeholder: "ハイフンなし" %></td>
+          </tr>
 
-        <tr>
-          <th style="text-align:right"><%= f.label "電話番号" %></th>
-          <td><%= f.text_field :phone_number, placeholder: "ハイフンなし" %></td>
-        </tr>
+          <tr>
+            <th style="width: 140px;"><%= f.label "メールアドレス" %></th>
+            <td><%= f.email_field :email, size: "25", placeholder: "当サイトログイン時に使用" %></td>
+          </tr>
 
-        <tr>
-          <th style="text-align:right"><%= f.label "メールアドレス" %></th>
-          <td><%= f.email_field :email, size: "25", placeholder: "当サイトログイン時に使用" %></td>
-        </tr>
+          <tr>
+            <th style="width: 140px;"><%= f.label "進捗" %></th>
+            <td><%= f.select :status, Customer.statuses.keys.map { |k| [t("enums.customer.status.#{k}"), k] }, class: "mb-3 sm:mb-0 mr-9 border border-line-200 rounded-[3px] rounded-[3px] py-3 pl-6 w-52 h-12 font-bold" %></td>
+          </tr>
 
-        <tr>
-          <th style="text-align:right"><%= f.label "進捗" %></th>
-          <td><%= f.select :status, Customer.statuses.keys.map { |k| [t("enums.customer.status.#{k}"), k] }, class: "mb-3 sm:mb-0 mr-9 border border-line-200 rounded-[3px] rounded-[3px] py-3 pl-6 w-52 h-12 font-bold" %></td>
-        </tr>
+          <tr>
+            <th></th>
+            <td>
+              <%= f.radio_button :is_active, true %>
+              <%= f.label :is_active, "有効" %>
+              <%= f.radio_button :is_active, false %>
+              <%= f.label :is_active, "退会" %>
+            </td>
+          </tr>
 
-        <tr>
-          <th></th>
-          <td>
-            <%= f.radio_button :is_active, true %>
-            <%= f.label :is_active, "有効" %>
-            <%= f.radio_button :is_active, false %>
-            <%= f.label :is_active, "退会" %>
-          </td>
-        </tr>
-
-        <tr>
-          <td style="text-align:right"><%= link_to "戻る", admin_customer_path, class: "btn btn-outline-dark" %></td>
-          <td><%= f.submit "更新", class:"btn btn-outline-primary btn-lg" %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
+          <tr>
+            <td style="width: 140px;"><%= link_to "戻る", admin_customer_path, class: "btn btn-outline-dark" %></td>
+            <td><%= f.submit "更新", class:"btn btn-outline-primary btn-lg" %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
 </div>

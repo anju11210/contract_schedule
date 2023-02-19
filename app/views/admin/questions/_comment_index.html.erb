@@ -1,19 +1,21 @@
-<table class="table">
-  <tbody>
-    <% question.comments.each do |comment| %>
-      <tr>
-        <th>ご回答</th>
-        <td style="width: 400px;"><%= comment.body %></td>
-        <td>
-          <% if admin_signed_in? %>
-            <% if comment.confirmation_status == true %>
-              <%= "既読" %>
-            <% else %>
-              <%= "未読" %>
+<div class="d-flex justify-content-center p-3">
+  <table class="table">
+    <tbody>
+      <% question.comments.each do |comment| %>
+        <tr>
+          <th style="width: 120px;">ご回答</th>
+          <td><%= comment.body %></td>
+          <td style="width: 120px; text-align:center;">
+            <% if admin_signed_in? %>
+              <% if comment.confirmation_status == true %>
+                <%= "既読" %>
+              <% else %>
+                <%= "未読" %>
+              <% end %>
             <% end %>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,33 +1,35 @@
 <div class="container mt-5 mb-5">
   <div class="row my-3">
-    <div class='col-sm-8 px-sm-0 offset-sm-1'>
-      <h2 style="padding:20px;">【編集】物件情報</h2>
+    <div class="col-sm-8 px-sm-0 offset-sm-1">
+      <h2 style="padding:20px; text-align:center;">【編集】物件情報</h2>
       <%= render 'admin/real_estates/errors_real_estate', real_estate: @real_estate %>
     </div>
   </div>
-  <%= form_with model: [:admin, @real_estate] do |f| %>
-    <table class="table table-borderless">
-      <tbody>
-        <tr>
-          <th style="text-align:right"><%= f.label "物件名" %></th>
-          <td><%= f.text_field :name, size: "50" %></td>
-        </tr>
+  <div class="d-flex justify-content-center p-3">
+    <%= form_with model: [:admin, @real_estate] do |f| %>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th style="width: 140px;"><%= f.label "物件名" %></th>
+            <td><%= f.text_field :name, size: "50" %></td>
+          </tr>
 
-        <tr>
-          <th style="text-align:right"><%= f.label "所在地" %></th>
-          <td><%= f.text_field :address, size: "50" %></td>
-        </tr>
+          <tr>
+            <th style="width: 140px;"><%= f.label "所在地" %></th>
+            <td><%= f.text_field :address, size: "50" %></td>
+          </tr>
 
-        <tr>
-          <th style="text-align:right"><%= f.label "成約価格" %></th>
-          <td><%= f.text_field :price, size: "10" %>万円</td>
-        </div>
+          <tr>
+            <th style="width: 140px;"><%= f.label "成約価格" %></th>
+            <td><%= f.text_field :price, size: "10" %>万円</td>
+          </div>
 
-        <tr>
-          <td style="text-align:right"><%= link_to "戻る", admin_customer_appointments_path(@real_estate), class: "btn btn-outline-dark" %></td>
-          <td><%= f.submit "更新", class:"btn btn-outline-primary btn-lg" %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
+          <tr>
+            <td style="width: 140px;"><%= link_to "戻る", admin_customer_appointments_path(@real_estate), class: "btn btn-outline-dark" %></td>
+            <td><%= f.submit "更新", class:"btn btn-outline-primary btn-lg" %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
 </div>

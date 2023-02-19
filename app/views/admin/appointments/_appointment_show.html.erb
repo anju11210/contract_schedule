@@ -4,7 +4,7 @@
     <table class="table table-borderless table-hover">
       <tbody>
         <tr>
-          <th>手続き名</th>
+          <th style="width: 120px;">手続き名</th>
           <td><%= appointment.name %></td>
         </tr>
 
@@ -43,14 +43,14 @@
       <tbody>
         <% if appointment.earnest_money != 0 %>
     	    <tr>
-    	      <th>手付金</th>
-    	      <td style="text-align:right"><%= appointment.earnest_money.to_s(:delimited, delimiter: ',') %></td>
+    	      <td>手付金</td>
+    	      <td style="text-align:right; width: 120px;"><%= appointment.earnest_money.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
   	    <% end %>
 
         <% if appointment.brokerage_fee != 0 %>
     	    <tr>
-    	      <th>仲介手数料</th>
+    	      <td>仲介手数料</td>
     	      <td style="text-align:right"><%= appointment.brokerage_fee.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -58,7 +58,7 @@
 
         <% if appointment.revenue_stamp_fee != 0 %>
     	    <tr>
-    	      <th>収入印紙代</th>
+    	      <td>収入印紙代</td>
     	      <td style="text-align:right"><%= appointment.revenue_stamp_fee.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -66,7 +66,7 @@
 
   	    <% if appointment.remaining_amount != 0 %>
     	    <tr>
-    	      <th>売買残金</th>
+    	      <td>売買残金</td>
     	      <td style="text-align:right"><%= appointment.remaining_amount.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -74,7 +74,7 @@
 
   	    <% if appointment.real_estate_tax != 0 %>
     	    <tr>
-    	      <th>固定資産税清算金</th>
+    	      <td>固定資産税清算金</td>
     	      <td style="text-align:right"><%= appointment.real_estate_tax.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -82,7 +82,7 @@
 
   	    <% if appointment.registration_fee_1 != 0 %>
     	    <tr>
-    	      <th>登記費用</br>（司法書士宛）</th>
+    	      <td>登記費用(司法書士宛)</td>
     	      <td style="text-align:right"><%= appointment.registration_fee_1.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -90,8 +90,7 @@
 
   	    <% if appointment.registration_fee_2 != 0 %>
     	    <tr>
-    	      <th>
-    	        登記費用</br>（家屋調査士宛）</th>
+    	      <td>登記費用(家屋調査士宛)</td>
     	      <td style="text-align:right"><%= appointment.registration_fee_2.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -100,7 +99,7 @@
 
   	    <% if appointment.renovation_fee != 0 %>
     	    <tr>
-    	      <th>リフォーム費用</th>
+    	      <td>リフォーム費用</td>
     	      <td style="text-align:right"><%= appointment.renovation_fee.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -108,7 +107,7 @@
 
   	    <% if appointment.apartment_management_fee != 0 %>
     	    <tr>
-    	      <th>管理費・積立金清算金</th>
+    	      <td>管理費・積立金清算金</td>
     	      <td style="text-align:right"><%= appointment.apartment_management_fee.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -116,7 +115,7 @@
 
   	    <% if appointment.other_expense_1 != 0 %>
     	    <tr>
-    	      <th>その他費用（１）</th>
+    	      <td>その他費用（１）</td>
     	      <td style="text-align:right"><%= appointment.other_expense_1.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -124,7 +123,7 @@
 
   	    <% if appointment.other_expense_2 != 0 %>
     	    <tr>
-    	      <th>その他費用（２）</th>
+    	      <td>その他費用（２）</td>
     	      <td style="text-align:right"><%= appointment.other_expense_2.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -132,7 +131,7 @@
 
         <% if appointment.other_expense_3 != 0 %>
     	    <tr>
-    	      <th>その他費用（３）</th>
+    	      <td>その他費用（３）</td>
     	      <td style="text-align:right"><%= appointment.other_expense_3.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -140,7 +139,7 @@
 
   	    <% if appointment.other_expense_4 != 0 %>
     	    <tr>
-    	      <th>その他費用（４）</th>
+    	      <td>その他費用（４）</td>
     	      <td style="text-align:right"><%= appointment.other_expense_4.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -148,7 +147,7 @@
 
   	    <% if appointment.other_expense_5 != 0 %>
     	    <tr>
-    	      <th>その他費用（５）</th>
+    	      <td>その他費用（５）</td>
     	      <td style="text-align:right"><%= appointment.other_expense_5.to_s(:delimited, delimiter: ',') %></td>
     	      <td>円</td>
     	    </tr>
@@ -157,8 +156,8 @@
   	    <% if total != 0 %>
     	    <tr>
     	      <th>合計</th>
-    	      <td style="text-align:right"><%= total.to_s(:delimited, delimiter: ',') %></td>
-    	      <td>円</td>
+    	      <th style="text-align:right"><%= total.to_s(:delimited, delimiter: ',') %></th>
+    	      <th>円</th>
     	    </tr>
   	    <% end %>
   	  </tbody>

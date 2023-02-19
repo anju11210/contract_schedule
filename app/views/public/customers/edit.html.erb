@@ -1,64 +1,66 @@
 <div class="container mt-5 mb-5">
   <div class="row my-3">
     <div class='col-sm-8 px-sm-0 offset-sm-1'>
-      <h2>【編集】</h2>
+      <h2 style="padding:20px; text-align:center;">【編集】お客様情報</h2>
       <%= render 'admin/customers/errors_customer', customer: @customer %>
     </div>
   </div>
-  <%= form_with model: [@customer] do |f| %>
-    <table class="table table-borderless">
-      <tbody>
-        <tr>
-          <th style="text-align:right"><%= f.label "お名前" %></th>
-          <td>
-            <%= f.text_field :last_name, size: "10", placeholder: "姓" %>
-            <%= f.text_field :first_name, size: "10", placeholder: "名" %>
-          </td>
-        </tr>
+  <div class="d-flex justify-content-center p-3">
+    <%= form_with model: [@customer] do |f| %>
+      <table class="table table-borderless">
+        <tbody>
+          <tr>
+            <th style="width: 165px;"><%= f.label "お名前" %></th>
+            <td>
+              <%= f.text_field :last_name, size: "10", placeholder: "姓" %>
+              <%= f.text_field :first_name, size: "10", placeholder: "名" %>
+            </td>
+          </tr>
 
-        <tr>
-          <th style="text-align:right"><%= f.label "フリガナ" %></th>
-          <td>
-            <%= f.text_field :last_name_kana, size: "10", placeholder: "セイ" %>
-            <%= f.text_field :first_name_kana, size: "10", placeholder: "メイ" %>
-          </td>
-        </tr>
+          <tr>
+            <th style="width: 165px;"><%= f.label "フリガナ" %></th>
+            <td>
+              <%= f.text_field :last_name_kana, size: "10", placeholder: "セイ" %>
+              <%= f.text_field :first_name_kana, size: "10", placeholder: "メイ" %>
+            </td>
+          </tr>
 
-        <tr>
-          <th style="text-align:right"><%= f.label "現住所" %></th>
-          <td><%= f.text_field :address, size: "40", placeholder: "都道府県名から入力" %></td>
-        </tr>
+          <tr>
+            <th style="width: 165px;"><%= f.label "現住所" %></th>
+            <td><%= f.text_field :address, size: "40", placeholder: "都道府県名から入力" %></td>
+          </tr>
 
-        <tr>
-          <th style="text-align:right"><%= f.label "電話番号" %></th>
-          <td><%= f.text_field :phone_number, placeholder: "ハイフンなし" %></td>
-        </tr>
+          <tr>
+            <th style="width: 165px;"><%= f.label "電話番号" %></th>
+            <td><%= f.text_field :phone_number, placeholder: "ハイフンなし" %></td>
+          </tr>
 
-        <tr>
-          <th style="text-align:right"><%= f.label "メールアドレス" %></th>
-          <td><%= f.email_field :email, size: "25", placeholder: "当サイトログイン時に使用" %></td>
-        </tr>
+          <tr>
+            <th style="width: 165px;"><%= f.label "メールアドレス" %></th>
+            <td><%= f.email_field :email, size: "25", placeholder: "当サイトログイン時に使用" %></td>
+          </tr>
 
-        <!--<tr>-->
-        <!--  <th>-->
-            <%# if @minimum_password_length %>
-              <%#= f.label "パスワード(#{@minimum_password_length}文字以上)" %>
-            <%# end %>
-        <!--    <%#= f.label "パスワード" %>-->
-        <!--  </th>-->
-        <!--  <td><%# f.password_field :password %></td>-->
-        <!--</tr>-->
+          <!--<tr>-->
+          <!--  <th>-->
+              <%# if @minimum_password_length %>
+                <%#= f.label "パスワード(#{@minimum_password_length}文字以上)" %>
+              <%# end %>
+          <!--    <%#= f.label "パスワード" %>-->
+          <!--  </th>-->
+          <!--  <td><%# f.password_field :password %></td>-->
+          <!--</tr>-->
 
-        <!--<tr>-->
-        <!--  <th><%#= f.label "パスワード（確認用）" %></th>-->
-        <!--  <td><%# f.password_field :password_confirmation %></td>-->
-        <!--</tr>-->
+          <!--<tr>-->
+          <!--  <th><%#= f.label "パスワード（確認用）" %></th>-->
+          <!--  <td><%# f.password_field :password_confirmation %></td>-->
+          <!--</tr>-->
 
-        <tr>
-          <td  style="text-align:right"><%= link_to "戻る", customer_path, class: "btn btn-outline-dark" %></td>
-          <td><%= f.submit "更新", class:"btn btn-outline-primary btn-lg" %></td>
-        </tr>
-      </tbody>
-    </table>
-  <% end %>
+          <tr>
+            <td  style="width: 165px;"><%= link_to "戻る", customer_path, class: "btn btn-outline-dark" %></td>
+            <td><%= f.submit "更新", class:"btn btn-outline-primary btn-lg" %></td>
+          </tr>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
 </div>

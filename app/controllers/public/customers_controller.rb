@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!
-  before_action :thanks, except: :show
+  before_action :thanks, except:[:show, :unsubscribe, :withdraw]
 
   def show
   	@customer = Customer.find(params[:id])
