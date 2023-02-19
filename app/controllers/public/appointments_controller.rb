@@ -4,7 +4,7 @@ class Public::AppointmentsController < ApplicationController
 
   def index
     @customer = Customer.find(params[:customer_id])
-    @appointments = @customer.appointments.where("date >= ?", Date.today)
+    @appointments = @customer.appointments.where("date >= ? or date is null", Date.today)
     @question = Question.new
     @real_estate = @customer.real_estate
   end

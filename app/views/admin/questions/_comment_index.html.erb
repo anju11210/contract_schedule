@@ -1,9 +1,9 @@
-<table>
+<table class="table">
   <tbody>
     <% question.comments.each do |comment| %>
       <tr>
         <th>ご回答</th>
-        <td><%= comment.body %></td>
+        <td style="width: 400px;"><%= comment.body %></td>
         <td>
           <% if admin_signed_in? %>
             <% if comment.confirmation_status == true %>
