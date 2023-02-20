@@ -53,7 +53,7 @@ class Customer < ApplicationRecord
   def ja_status
     Customer.statuses_i18n[status]
   end
-  ##3366FF
+
   def active_text
     if is_active?
       '有効'

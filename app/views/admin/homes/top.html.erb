@@ -21,7 +21,7 @@
               <td style="text-align:center"><%= customer.created_at.strftime("%Y/%m/%d") %></td>
               <td style="text-align:center"><%= customer.last_name + customer.first_name %></td>
               <td style="text-align:center"><%= customer.phone_number %></td>
-              <td style="text-align:center"><%= customer.active_text %></td>
+              <td style="text-align:center"><%= customer_active(customer).html_safe %></td>
               <td><%= link_to "スケジュール一覧", admin_customer_appointments_path(customer.id) %></td>
             </tr>
             <% end %>
