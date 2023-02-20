@@ -8,9 +8,9 @@
           <td style="width: 120px; text-align:center;">
             <% if admin_signed_in? %>
               <% if comment.confirmation_status == true %>
-                <%= "既読" %>
+                <p><%= "既読" %></p>
               <% else %>
-                <%= "未読" %>
+                <p style="color: red;"><%= "未読" %></p>
               <% end %>
             <% end %>
           </td>

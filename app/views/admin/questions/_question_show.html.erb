@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-10 mt-5">
+    <%= flash[:notice] %>
     <div class="d-flex justify-content-center p-3">
     <table class="table">
       <tbody>
-        <%= flash[:notice] %>
         <% if admin_signed_in? %>
           <tr>
             <th style="width: 120px;">送信者</th>

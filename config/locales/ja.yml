@@ -90,6 +90,20 @@ ja:
         status: 進捗状況
       appointment:
         name: 手続き名
+        earnest_money: 手付金
+        brokerage_fee: 仲介手数料
+        revenue_stamp_fee: 収入印紙代
+        remaining_amount: 売買残金
+        real_estate_tax: 固定資産税清算金
+        registration_fee_1: 登記費用(司法書士宛)
+        registration_fee_2: 登記費用(家屋調査士宛)
+        renovation_fee: リフォーム費用
+        apartment_management_fee: 管理費・積立金清算金
+        other_expense_1: その他費用（１）
+        other_expense_2: その他費用（２）
+        other_expense_3: その他費用（３）
+        other_expense_4: その他費用（４）
+        other_expense_5: その他費用（５）
       comment:
         body: 本文
       question:

@@ -8,15 +8,21 @@ class Customer < ApplicationRecord
   has_many :questions, dependent: :destroy
   has_one :real_estate
 
-  validates :last_name, presence: true
-  validates :first_name, presence: true
-  validates :last_name_kana, presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: :katakana}
-  validates :first_name_kana, presence: true, format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: :katakana}
-  validates :address, presence: true
-  validates :phone_number, presence: true, format: {with: /\A\d{10}$|^\d{11}\z/, message: :phone_number_digit}
-  validates :email, presence: true
-  validates :password, presence: true, length: { minimum: 6 }, on: :create
-  validates :password_confirmation, presence: true, length: { minimum: 6 }, on: :create
+  with_options presence: true do
+    validates :last_name
+    validates :first_name
+    with_options format: {with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: :katakana} do
+      validates :last_name_kana
+      validates :first_name_kana
+    end
+    validates :address
+    validates :phone_number, format: {with: /\A\d{10}$|^\d{11}\z/, message: :phone_number_digit}
+    validates :email
+    with_options length: { minimum: 6 }, on: :create do
+      validates :password
+      validates :password_confirmation
+    end
+  end
 
   enum status: {
     subscription: 0,
@@ -47,7 +53,7 @@ class Customer < ApplicationRecord
   def ja_status
     Customer.statuses_i18n[status]
   end
-
+  ##3366FF
   def active_text
     if is_active?
       '有効'

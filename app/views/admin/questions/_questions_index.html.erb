@@ -16,7 +16,11 @@
       <tr>
         <td><%= question.created_at.strftime("%Y/%m/%d %H:%M:%S") %></td>
         <td><%= question.title %></td>
-        <td style="text-align:center"><%= question.ja_status %></td>
+        <% if question.status != "answered" %>
+          <td style="text-align:center; color: red;"><%= question.ja_status %></td>
+        <% else %>
+          <td style="text-align:center"><%= question.ja_status %></td>
+        <% end %>
         <% if admin_signed_in? %>
           <td><%= question.customer.last_name + question.customer.first_name %></td>
           <td><%= link_to "詳細", admin_question_path(question.id) %></td>

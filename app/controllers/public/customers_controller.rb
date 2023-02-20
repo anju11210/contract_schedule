@@ -27,7 +27,7 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @customer.update(is_active: false)
     reset_session
-    flash[:notice] = "退会処理を実行しました"
+    flash[:notice] = "退会処理を実行いたしました。ご利用ありがとうございました。"
     redirect_to root_path
   end
 
