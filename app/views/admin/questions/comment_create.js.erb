@@ -2,4 +2,5 @@
 $("#comments-area").html("<%= j(render 'admin/questions/comment_index', question: @question) %>")
 <!--送信後のフォーム内を空にする-->
 $("#comment_body").val("")
+<!--errorが発生しているcommentのままだとエラーメッセージが消えないため、create後は発生していないものにここで更新-->
 $("#comments-error").html("<%= j(render 'admin/questions/errors_comment', comment: @comment) %>");
