@@ -2,6 +2,10 @@
 <%= month_calendar(attribute: :date, events: appointments) do |date, appointments| %>
   <%= date.day %>
   <% appointments.each do |appointment| %>
-    <div><%= link_to appointment.name, admin_customer_appointment_path(appointment.customer, appointment) %></div>
+    <% if admin_signed_in? %>
+      <div><%= link_to appointment.name, admin_customer_appointment_path(appointment.customer, appointment) %></div>
+    <% else %>
+      <div><%= link_to appointment.name, customer_appointment_path(appointment.customer, appointment) %></div>
+    <% end %>
   <% end %>
 <% end %>

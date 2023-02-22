@@ -32,7 +32,9 @@
       </tbody>
     </table>
     </div>
-    <%= render 'admin/questions/comment_index', question: question %>
+    <div id="comments-area">
+      <%= render 'admin/questions/comment_index', question: question %>
+    </div>
     <div>
       <% if admin_signed_in? %>
         <%= link_to "ご意見・ご質問一覧へ戻る", admin_questions_path, class: "btn btn-outline-dark" %>

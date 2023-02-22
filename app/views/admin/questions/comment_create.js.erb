@@ -1,0 +1,5 @@
+<!--id="comments_areaをrenderで指定した部分テンプレートに更新-->
+$("#comments-area").html("<%= j(render 'admin/questions/comment_index', question: @question) %>")
+<!--送信後のフォーム内を空にする-->
+$("#comment_body").val("")
+$("#comments-error").html("<%= j(render 'admin/questions/errors_comment', comment: @comment) %>");
