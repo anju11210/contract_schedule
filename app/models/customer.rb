@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
 
   has_many :appointments, dependent: :destroy
   has_many :questions, dependent: :destroy
-  has_one :real_estate
+  has_one :real_estate, dependent: :destroy
 
   with_options presence: true do
     validates :last_name
