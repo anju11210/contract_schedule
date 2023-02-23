@@ -83,9 +83,6 @@ ja:
         last_name_kana: フリガナ（セイ）
         address: 現住所
         phone_number: 電話番号
-        email: メールアドレス
-        password: パスワード
-        password_confirmation: パスワード（確認用）
         is_active: 退会状況
         status: 進捗状況
       appointment:

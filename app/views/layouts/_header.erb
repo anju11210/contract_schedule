@@ -50,9 +50,9 @@
                   </span>
                 </li>
               </ul>
-              <div style="width: 70%; margin: 0 0 0 auto;" >
+              <div style="width: 80%; margin: 0 0 0 auto;" >
                 <%= form_with url: search_admin_customers_path, method: :get, class:"d-flex", local: true do |f| %>
-                  <%= f.text_field :keyword, class:"form-control me-2",  placeholder:"部分一致（カナ姓 or カナ名 or 電話番号）" %>
+                  <%= f.text_field :keyword, class:"form-control me-2",  placeholder:"買主検索(部分一致)：カナ姓・カナ名・電話番号" %>
                   <%= f.submit "Search", class:"btn btn-outline-primary" %>
                 <% end %>
               </div>

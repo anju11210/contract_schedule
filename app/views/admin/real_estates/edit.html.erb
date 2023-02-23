@@ -2,11 +2,11 @@
   <div class="row my-3">
     <div class="col-sm-8 px-sm-0 offset-sm-1">
       <h2 style="padding:20px; text-align:center;">【編集】物件情報</h2>
-      <%= render 'admin/real_estates/errors_real_estate', real_estate: @real_estate %>
     </div>
   </div>
   <div class="d-flex justify-content-center p-3">
     <%= form_with model: [:admin, @real_estate] do |f| %>
+      <%= render 'layouts/error_messages', model: f.object %>
       <table class="table table-borderless">
         <tbody>
           <tr>

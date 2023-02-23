@@ -15,6 +15,9 @@
 
   <body>
     <%= render 'layouts/header' %>
+    <div id="flash-message" class="container">
+      <%= render 'layouts/flash' %>
+    </div>
     <main>
       <%= yield %>
     </main>

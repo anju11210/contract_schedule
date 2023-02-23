@@ -22,13 +22,13 @@
 
     <div class = "col-md-8 offset-md-1">
       <h2 style="padding:20px;">【編集】スケジュール</h2>
-      <%= render 'admin/appointments/errors_appointment', appointment: @appointment %>
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10 mt-5">
           <%= form_with model: @appointment, url: admin_customer_appointment_path(@customer) do |f| %>
-          <!--URLでも渡しているが、hiddenで書くことでストロングパラメータからcustomer_idを一括で取ってくることができる-->
-          <%= f.hidden_field :customer_id, value: @customer.id %>
+            <%= render 'layouts/error_messages', model: f.object %>
+            <!--URLでも渡しているが、hiddenで書くことでストロングパラメータからcustomer_idを一括で取ってくることができる-->
+            <%= f.hidden_field :customer_id, value: @customer.id %>
             <table class="table table-borderless">
               <tbody>
                 <tr>

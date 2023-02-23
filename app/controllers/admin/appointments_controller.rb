@@ -13,8 +13,10 @@ class Admin::AppointmentsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @appointment = Appointment.new(appointment_params)
     if @appointment.save
+      flash[:notice] = "登録に成功しました。"
       redirect_to admin_customer_appointments_path(@customer)
     else
+      flash.now[:alert] = "登録に失敗しました。"
       render :new
     end
   end
@@ -43,8 +45,10 @@ class Admin::AppointmentsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @appointment = Appointment.find(params[:id])
     if @appointment.update(appointment_params)
+      flash[:notice] = "更新に成功しました。"
       redirect_to admin_customer_appointment_path(@customer)
     else
+      flash.now[:alert] = "更新に失敗しました。"
       render :edit
     end
   end
@@ -53,6 +57,7 @@ class Admin::AppointmentsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @appointment = Appointment.find(params[:id])
     @appointment.destroy
+    flash[:notice] = "削除処理を実行しました。"
     redirect_to admin_customer_appointments_path(@customer)
   end
 

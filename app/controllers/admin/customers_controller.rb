@@ -8,8 +8,10 @@ class Admin::CustomersController < ApplicationController
   def create
     @customer = Customer.new(customer_params)
     if @customer.save
+      flash[:notice] = "登録に成功しました。"
       redirect_to admin_root_path
     else
+      flash.now[:alert] = "登録に失敗しました。"
       render :new
     end
   end
@@ -25,8 +27,10 @@ class Admin::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
+      flash[:notice] = "更新に成功しました。"
       redirect_to admin_customer_path(@customer)
     else
+      flash.now[:alert] = "更新に失敗しました。"
       render :edit
     end
   end

@@ -4,3 +4,5 @@ $("#comments-area").html("<%= j(render 'admin/questions/comment_index', question
 $("#comment_body").val("")
 <!--errorが発生しているcommentのままだとエラーメッセージが消えないため、create後は発生していないものにここで更新-->
 $("#comments-error").html("<%= j(render 'admin/questions/errors_comment', comment: @comment) %>");
+<!--フラッシュメッセージ-->
+$('#flash-message').html("<%= j(render 'layouts/flash') %>");

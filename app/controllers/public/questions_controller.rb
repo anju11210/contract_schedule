@@ -6,7 +6,7 @@ class Public::QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @question.customer_id = current_customer.id
     if @question.save
-      flash[:notice] = "ご意見・ご質問を送信いたしました"
+      flash[:notice] = "ご意見・ご質問を送信しました。"
       redirect_to customer_appointments_path(@question.customer.id)
     else
       #request.referer：前のページのurlが入る → railsのrouteから情報を取り出して、pathに渡す（今回は、customerのid情報を渡すために記述）
@@ -21,6 +21,7 @@ class Public::QuestionsController < ApplicationController
           @appointment = Appointment.find(path[:id])
           @total = @appointment.earnest_money + @appointment.brokerage_fee + @appointment.revenue_stamp_fee + @appointment.remaining_amount + @appointment.real_estate_tax + @appointment.registration_fee_1 + @appointment.registration_fee_2 + @appointment.renovation_fee + @appointment.apartment_management_fee + @appointment.other_expense_1 + @appointment.other_expense_2 + @appointment.other_expense_3 + @appointment.other_expense_4 + @appointment.other_expense_5
       end
+      flash.now[:alert] = "ご意見・ご質問の送信に失敗しました。"
       #pathに、controllerとactionの内容を代入している（indexとshowの場合があるため）
       render "#{path[:controller]}/#{path[:action]}"
       #showがない場合は「render 'public/appointments/index'」でもok
