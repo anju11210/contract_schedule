@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "homes#top"
     #アポイントを、アポイント登録時から会員と紐づけたいため
-    #appointmentsのnewとcreateのみをネストさせる方法もある（その方が、遷移先にidを渡す必要がなくミスが減る）※今回は、全てネストした状態で実装したためこのまま
+    #appointmentsのnewとcreateのみをネストさせる方法もある（その方が遷移先パスにidを渡す必要がなくミスが減る、※今回は、全てネストした状態で実装したためこのまま）
     get  "customers" => redirect("admin/customers/new")
     resources :customers, only: %i(new create show edit update) do
       resources :appointments, only: %i(new create index show edit update destroy)
