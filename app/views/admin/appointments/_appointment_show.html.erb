@@ -9,30 +9,30 @@
         </tr>
 
         <tr>
-          <th>日時</th>
+          <th style="width: 120px;">日時</th>
   	      <td><%= l(appointment.date, format: :customize) if appointment.date %><%= l(appointment.time, format: :customize) if appointment.time %></td>
   	    </tr>
 
   	    <tr>
-  	      <th>場所</th>
+  	      <th style="width: 120px;">場所</th>
   	      <td><%= appointment.place_name %></td>
   	    </tr>
 
   	    <tr>
-  	      <th>住所（場所）</th>
+  	      <th style="width: 120px;">住所（場所）</th>
   	      <td><%= appointment.place_address %></td>
   	    </tr>
 
         <% if appointment.preparation_thing.present? %>
           <tr>
-            <th>お持ちもの</th>
+            <th style="width: 120px;">お持ちもの</th>
             <td><%= appointment.preparation_thing %></td>
           </tr>
         <% end %>
 
         <% if appointment.description_1.present? %>
           <tr>
-            <th>備考</th>
+            <th style="width: 120px;">備考</th>
             <td><%= appointment.description_1 %></td>
           </tr>
         <% end %>
@@ -167,7 +167,7 @@
       <table class="table table-borderless table-hover">
         <tbody>
     	    <tr>
-    	      <th>備考（金員について）</th>
+    	      <th style="width: 120px;"><p>備考<br>(金員関係)</p></th>
     	      <td><%= appointment.description_2 %></td>
     	    </tr>
         </tbody>

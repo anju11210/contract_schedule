@@ -18,8 +18,8 @@ class Public::QuestionsController < ApplicationController
       @real_estate = @customer.real_estate
       #showページ表示の際（pathにidが必要な場合）は下記も含めるという記述
       if path[:id]
-          @appointment = Appointment.find(path[:id])
-          @total = @appointment.earnest_money + @appointment.brokerage_fee + @appointment.revenue_stamp_fee + @appointment.remaining_amount + @appointment.real_estate_tax + @appointment.registration_fee_1 + @appointment.registration_fee_2 + @appointment.renovation_fee + @appointment.apartment_management_fee + @appointment.other_expense_1 + @appointment.other_expense_2 + @appointment.other_expense_3 + @appointment.other_expense_4 + @appointment.other_expense_5
+        @appointment = Appointment.find(path[:id])
+        @total = @appointment.earnest_money + @appointment.brokerage_fee + @appointment.revenue_stamp_fee + @appointment.remaining_amount + @appointment.real_estate_tax + @appointment.registration_fee_1 + @appointment.registration_fee_2 + @appointment.renovation_fee + @appointment.apartment_management_fee + @appointment.other_expense_1 + @appointment.other_expense_2 + @appointment.other_expense_3 + @appointment.other_expense_4 + @appointment.other_expense_5
       end
       flash.now[:alert] = "ご意見・ご質問の送信に失敗しました。"
       #pathに、controllerとactionの内容を代入している（indexとshowの場合があるため）

@@ -4,7 +4,6 @@
       <h2 style="padding:20px;">取引物件</h2>
       <%= render 'admin/real_estates/real_estate_info', real_estate: @real_estate %>
       <h2 style="padding:20px;">ご意見・ご質問</h2>
-      <%= render 'public/questions/errors_question', question: @question %>
       <%= flash[:notice] %>
       <%= render 'public/questions/question_new', question: @question %>
     </div>
