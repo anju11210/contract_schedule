@@ -24,7 +24,7 @@ class Admin::AppointmentsController < ApplicationController
   def index
     @customer = Customer.find(params[:customer_id])
     @real_estate = @customer.real_estate
-    @appointments = @customer.appointments
+    @appointments = @customer.appointments.order(date: "ASC", time: "ASC")
   end
 
   def show
