@@ -7,7 +7,7 @@ class Public::QuestionsController < ApplicationController
     @question.customer_id = current_customer.id
     @question.save!
     flash[:notice] = "ご意見・ご質問を送信しました。"
-    redirect_to customer_appointments_path(@question.customer.id)
+    redirect_to questions_path
   end
 
   def index

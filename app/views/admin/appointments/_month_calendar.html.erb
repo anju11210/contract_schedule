@@ -5,7 +5,7 @@
     <% if admin_signed_in? %>
       <div><%= link_to appointment.name, admin_customer_appointment_path(appointment.customer, appointment) %></div>
     <% else %>
-      <div><%= link_to appointment.name, customer_appointment_path(appointment.customer, appointment) %></div>
+      <div><%= link_to appointment.name, customer_appointment_path(appointment.customer, appointment), data: {"turbolinks"=>false} %></div>
     <% end %>
   <% end %>
 <% end %>

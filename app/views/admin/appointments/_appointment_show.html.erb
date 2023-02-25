@@ -190,7 +190,7 @@
         </div>
       <% else %>
         <div>
-          <%= link_to "スケジュール一覧へ戻る", customer_appointments_path(@customer), class: "btn btn-outline-dark" %>
+          <%= link_to "スケジュール一覧へ戻る", customer_appointments_path(@customer), class: "btn btn-outline-dark", data: {"turbolinks"=>false} %>
         </div>
       <% end %>
     </div>

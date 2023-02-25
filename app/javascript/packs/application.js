@@ -18,19 +18,19 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-// じゃばすぷりくとが走る
+// javascriptを走らせる
 $(document).ready(function () {
-  //　各種タグの取得
+// 各種タグの取得
 const input = document.querySelector(".text-field");
 const area = document.querySelector(".text-area");
 const button = document.querySelector(".js-submit");
-// keyupイベントを拾う（キーボードを叩いた瞬間に発火する）
+// keyupイベントを拾う（キーボードを叩いた瞬間にボタンを発火させる）
 window.addEventListener("keyup", () => {
  if (input.value != "" && area.value != "") {
    // 成功した場合は、disabledをfalseに（ボタンを押せるようにする）
    button.disabled = false;
  } else {
-   // 失敗した場合は、disabledをtrueに
+   // 失敗した場合は、disabledをtrueに（ボタンを押せないままにする）
    button.disabled = true;
  }
 });

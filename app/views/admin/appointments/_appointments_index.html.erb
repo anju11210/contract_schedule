@@ -21,7 +21,7 @@
         <% if admin_signed_in? %>
           <td style="text-align:center"><%= link_to "詳細", admin_customer_appointment_path(customer, appointment) %></td>
         <% else %>
-          <td><%= link_to "詳細", customer_appointment_path(customer, appointment),data: {"turbolinks"=>false} %></td>
+          <td><%= link_to "詳細", customer_appointment_path(customer, appointment), data: {"turbolinks"=>false} %></td>
         <% end %>
         <td></td>
       </tr>
