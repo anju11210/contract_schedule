@@ -17,3 +17,22 @@ import '@fortawesome/fontawesome-free/js/all'
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+// じゃばすぷりくとが走る
+$(document).ready(function () {
+  //　各種タグの取得
+const input = document.querySelector(".text-field");
+const area = document.querySelector(".text-area");
+const button = document.querySelector(".js-submit");
+// keyupイベントを拾う（キーボードを叩いた瞬間に発火する）
+window.addEventListener("keyup", () => {
+ if (input.value != "" && area.value != "") {
+   // 成功した場合は、disabledをfalseに（ボタンを押せるようにする）
+   button.disabled = false;
+ } else {
+   // 失敗した場合は、disabledをtrueに
+   button.disabled = true;
+ }
+});
+
+});

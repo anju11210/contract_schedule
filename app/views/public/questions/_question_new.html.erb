@@ -1,14 +1,14 @@
-<%= form_with model: question, url: questions_path do |f| %>
+<%= form_with model: question, url: questions_path, id: "form" do |f| %>
   <%= render 'layouts/error_messages', model: f.object %>
   <div class="form-group">
     <%= f.label "件名" %>
-    <%= f.text_field :title, size: "30" %>
+    <%= f.text_field :title, size: "30", class: "text-field" %>
   </div>
   <div class="form-group">
     <%= f.label "本文" %>
-    <%= f.text_area :body, class:'form-control book_body' %>
+    <%= f.text_area :body, class:'form-control book_body text-area' %>
   </div>
   <div class="form-group">
-    <%= f.submit "送信", class:"btn btn-outline-primary" %>
+    <%= f.submit "送信", { class:"btn btn-outline-primary js-submit", disabled: true} %>
   </div>
 <% end %>
