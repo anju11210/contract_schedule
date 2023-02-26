@@ -1,6 +1,5 @@
 class Appointment < ApplicationRecord
   belongs_to :customer
-  before_save :set_the_day_implement
 
   with_options presence: true do
     validates :name
@@ -20,16 +19,16 @@ class Appointment < ApplicationRecord
     validates :other_expense_5
   end
 
-  private
-
-  #timeの年月日をdateと揃えるための記述
-  def set_the_day_implement
-    #dateのフォームから日付を取得
-    year = self.date.year
-    month = self.date.month
-    day = self.date.day
-    #フォームから取得した値をtimeに挿入
-    self.time = self.time.change(year: year, month: month, day: day)
+  #インスタンスメソッド（コールバックと比べて引数を渡しやすい）：コントローラーで定義される（インスタンス変数.メソッド名）
+  def set_time_date
+    #dateが存在していたら、dateのフォームから年月日を取得
+    if self.date.present?
+      year = self.date.year
+      month = self.date.month
+      day = self.date.day
+      #フォームから取得した値をtimeに代入
+      self.time = self.time.change(year: year, month: month, day: day)
+    end
   end
 end
 

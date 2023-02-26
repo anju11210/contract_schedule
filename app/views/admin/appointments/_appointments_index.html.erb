@@ -15,7 +15,16 @@
   <tbody>
     <% appointments.each do |appointment| %>
       <tr>
-        <td style="text-align:center"><%= l(appointment.date, format: :customize) if appointment.date %><%= l(appointment.time, format: :customize) if appointment.time %></td>
+        <td style="text-align:center">
+          <% if appointment.date.present? %>
+            <!--midnight：時間が0のもの（railsの、rubyに対するアクティブサポートのコア拡張）-->
+            <% if appointment.time.present? && appointment.time.midnight != appointment.time %>
+              <%= l(appointment.date, format: :customize) %><%= l(appointment.time, format: :customize) %>
+            <% else %>
+              <%= l(appointment.date, format: :customize) %>
+            <% end %>
+          <% end %>
+        </td>
         <td style="text-align:center"><%= appointment.name %></td>
         <td style="text-align:center"><%= appointment.place_name %></td>
         <% if admin_signed_in? %>

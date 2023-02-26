@@ -10,7 +10,15 @@
 
         <tr>
           <th style="width: 120px;">日時</th>
-  	      <td><%= l(appointment.date, format: :customize) if appointment.date %><%= l(appointment.time, format: :customize) if appointment.time %></td>
+  	      <td>
+  	        <% if appointment.date.present? %>
+              <% if appointment.time.present? && appointment.time.midnight != appointment.time %>
+                <%= l(appointment.date, format: :customize) %><%= l(appointment.time, format: :customize) %>
+              <% else %>
+                <%= l(appointment.date, format: :customize) %>
+              <% end %>
+            <% end %>
+          </td>
   	    </tr>
 
   	    <tr>

@@ -12,6 +12,7 @@ class Admin::AppointmentsController < ApplicationController
   def create
     @customer = Customer.find(params[:customer_id])
     @appointment = Appointment.new(appointment_params)
+    @appointment.set_time_date
     if @appointment.save
       flash[:notice] = "登録に成功しました。"
       redirect_to admin_customer_appointments_path(@customer)
@@ -45,6 +46,9 @@ class Admin::AppointmentsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @appointment = Appointment.find(params[:id])
     if @appointment.update(appointment_params)
+      #appointment_paramsを取得したデータに「set_time_date」の内容を下記で反映させ、改めてsaveする
+      @appointment.set_time_date
+      @appointment.save
       flash[:notice] = "更新に成功しました。"
       redirect_to admin_customer_appointment_path(@customer)
     else
