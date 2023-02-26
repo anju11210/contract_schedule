@@ -23,3 +23,4 @@ class Admin::CommentsController < ApplicationController
     params.require(:comment).permit(:body)
   end
 end
+

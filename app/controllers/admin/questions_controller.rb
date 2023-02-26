@@ -3,7 +3,6 @@ class Admin::QuestionsController < ApplicationController
 
   def index
     @questions = Question.all.page(params[:page]).per(20)
-    # @question_customer = @questions.customer_id
   end
 
   def show
@@ -27,3 +26,4 @@ class Admin::QuestionsController < ApplicationController
     params.require(:question).permit(:status)
   end
 end
+

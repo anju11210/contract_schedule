@@ -22,6 +22,7 @@ class Appointment < ApplicationRecord
 
   private
 
+  #timeの年月日をdateと揃えるための記述
   def set_the_day_implement
     #dateのフォームから日付を取得
     year = self.date.year
@@ -31,3 +32,4 @@ class Appointment < ApplicationRecord
     self.time = self.time.change(year: year, month: month, day: day)
   end
 end
+

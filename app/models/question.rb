@@ -8,3 +8,4 @@ class Question < ApplicationRecord
     Question.statuses_i18n[status]
   end
 end
+

@@ -91,3 +91,4 @@ class Admin::AppointmentsController < ApplicationController
     )
   end
 end
+

@@ -6,3 +6,4 @@ class RealEstate < ApplicationRecord
     validates :address
   end
 end
+

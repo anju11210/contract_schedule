@@ -27,7 +27,6 @@ Rails.application.routes.draw do
     resources :real_estates, only: %i(new create edit update)
     resources :questions, only: %i(index show update)
     resources :comments, only: %i(create)
-
   end
 
   #会員側ルーティング設定
@@ -50,3 +49,4 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
+

@@ -37,3 +37,4 @@ class Admin::SessionsController < Devise::SessionsController
     new_admin_session_path
   end
 end
+

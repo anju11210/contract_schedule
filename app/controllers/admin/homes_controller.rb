@@ -5,3 +5,4 @@ class Admin::HomesController < ApplicationController
     @customers = Customer.all.page(params[:page]).per(20)
   end
 end
+

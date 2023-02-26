@@ -73,3 +73,4 @@ class Customer < ApplicationRecord
   end
 
 end
+

@@ -24,3 +24,4 @@ module Portfolio
     config.i18n.available_locales = :ja
   end
 end
+

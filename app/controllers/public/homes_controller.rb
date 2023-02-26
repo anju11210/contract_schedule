@@ -12,3 +12,4 @@ class Public::HomesController < ApplicationController
     @customer = current_customer
   end
 end
+

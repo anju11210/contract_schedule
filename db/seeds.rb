@@ -67,3 +67,4 @@ Customer.find_or_create_by!(email: "sample@five") do |customer|
 end
 
 p "データを作成しました"
+

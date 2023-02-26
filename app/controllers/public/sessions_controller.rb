@@ -36,3 +36,4 @@ class Public::SessionsController < Devise::SessionsController
     root_path
   end
 end
+

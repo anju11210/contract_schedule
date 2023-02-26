@@ -4,16 +4,17 @@
   	  <div class='mx-auto'>
   	    <div>
       	  <% if admin_signed_in? %>
-          		<p style="padding: 50px;">CopyRight Infratop.inc</p>
+            <p style="padding: 50px;">CopyRight Infratop.inc</p>
       	  <% elsif customer_signed_in? %>
-          		<p style="padding: 20px;">CopyRight Infratop.inc</p>
-          		<p style="padding: 15px;"> 退会される方は<%= link_to "こちら", customer_unsubscribe_path(current_customer) %></p>
+        		<p style="padding: 20px;">CopyRight Infratop.inc</p>
+        		<p style="padding: 15px;"> 退会される方は<%= link_to "こちら", customer_unsubscribe_path(current_customer) %></p>
       	  <% else %>
-          		<p style="padding: 20px;">CopyRight Infratop.inc</p>
-              <p style="padding: 15px;"> 管理者ログインは<%= link_to "こちら", new_admin_session_path %></p>
+        		<p style="padding: 20px;">CopyRight Infratop.inc</p>
+            <p style="padding: 15px;"> 管理者ログインは<%= link_to "こちら", new_admin_session_path %></p>
         	<% end %>
         </div>
     	</div>
     </div>
   </div>
 </footer>
+
