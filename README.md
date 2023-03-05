@@ -30,6 +30,6 @@
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
-- ・使用gem：devise,enum,kaminari,i18n,simple_calendar
+- ・使用gem：devise,enum_help,kaminari,devise-i18n,simple_calendar,rails-i18n
 - JSライブラリ：jQuery
 - IDE：Cloud9
