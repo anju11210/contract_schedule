@@ -12,14 +12,26 @@ class Public::QuestionsController < ApplicationController
 
   def index
     @customer = current_customer
-    #アソシエーションからcustomerに紐づくquestionsを取ってくる
+    #TODO:URL直打ちでの他会員question/indexの表示を制限したい（ログイン中の会員でもroot_pathに戻されてしまう）
+    # customer_id = params[:id].to_i
+    # login_customer_id = current_customer.id
+    # if(customer_id != login_customer_id)
+    #   redirect_to root_path
+    # end
+    #NOTE:アソシエーションからcustomerに紐づくquestionsを取ってくる
     @questions = @customer.questions.page(params[:page]).per(20)
   end
 
   def show
     @customer = current_customer
+    #TODO:URL直打ちでの他会員question/indexの表示を制限したい（ログイン中の会員でもroot_pathに戻されてしまう）
+    # customer_id = params[:id].to_i
+    # login_customer_id = current_customer.id
+    # if(customer_id != login_customer_id)
+    #   redirect_to root_path
+    # end
     @question = Question.find(params[:id])
-    #update_all：「.」の左側の複数のアクティブレコードに対して使用（一つの場合はupdate
+    #NOTE:update_all：「.」の左側の複数のアクティブレコードに対して使用（一つの場合はupdate）
     @question.comments.update_all(confirmation_status: true)
   end
 

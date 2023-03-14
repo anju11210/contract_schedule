@@ -4,6 +4,9 @@ class Public::AppointmentsController < ApplicationController
 
   def index
     @customer = Customer.find(params[:customer_id])
+    unless @customer.id == current_customer.id
+      redirect_to root_path
+    end
     @appointments = @customer.appointments.where("date >= ? or date is null", Date.today).order(date: "ASC", time: "ASC")
     @question = Question.new
     @real_estate = @customer.real_estate
@@ -11,6 +14,9 @@ class Public::AppointmentsController < ApplicationController
 
   def show
     @customer = Customer.find(params[:customer_id])
+    unless @customer.id == current_customer.id
+      redirect_to root_path
+    end
     @appointment = Appointment.find(params[:id])
     @question = Question.new
     @real_estate = @customer.real_estate

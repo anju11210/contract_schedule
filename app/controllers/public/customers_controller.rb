@@ -4,10 +4,16 @@ class Public::CustomersController < ApplicationController
 
   def show
   	@customer = Customer.find(params[:id])
+  	unless @customer.id == current_customer.id
+      redirect_to root_path
+    end
   end
 
   def edit
     @customer = Customer.find(params[:id])
+    unless @customer.id == current_customer.id
+      redirect_to root_path
+    end
   end
 
   def update
@@ -19,14 +25,23 @@ class Public::CustomersController < ApplicationController
       flash.now[:alert] = "更新に失敗しました。"
       render :edit
     end
+    unless @customer.id == current_customer.id
+      redirect_to root_path
+    end
   end
 
   def unsubscribe
     @customer = Customer.find(params[:customer_id])
+    unless @customer.id == current_customer.id
+      redirect_to root_path
+    end
   end
 
   def withdraw
     @customer = Customer.find(params[:customer_id])
+    unless @customer.id == current_customer.id
+      redirect_to root_path
+    end
     @customer.update(is_active: false)
     reset_session
     flash[:notice] = "退会処理を実行しました。ご利用ありがとうございました。"
