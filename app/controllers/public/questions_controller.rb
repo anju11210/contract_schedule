@@ -8,11 +8,13 @@ class Public::QuestionsController < ApplicationController
     @question.save!
     flash[:notice] = "ご意見・ご質問を送信しました。"
     redirect_to questions_path
+    #TODO:スペースのみ等で投稿した際のバリデーションエラーを表示させたい（１．appointmentのページにrenderできない。２．redirectさせると、遷移はできるがエラーメッセージが表示できないためナシ。）※学習期間終了後記述
+    #TODO:もしくは、送信ボタンの発火に制限をかけたい。（上記について）※学習期間終了後記述
   end
 
   def index
     @customer = current_customer
-    #TODO:URL直打ちでの他会員question/indexの表示を制限したい（ログイン中の会員でもroot_pathに戻されてしまう）
+    #TODO:URL直打ちでの他会員question/indexの表示を制限したい（ログイン中の会員でもroot_pathに戻されてしまう）※学習期間終了後記述
     # customer_id = params[:id].to_i
     # login_customer_id = current_customer.id
     # if(customer_id != login_customer_id)
@@ -24,7 +26,7 @@ class Public::QuestionsController < ApplicationController
 
   def show
     @customer = current_customer
-    #TODO:URL直打ちでの他会員question/indexの表示を制限したい（ログイン中の会員でもroot_pathに戻されてしまう）
+    #TODO:URL直打ちでの他会員question/indexの表示を制限したい（ログイン中の会員でもroot_pathに戻されてしまう）※学習期間終了後記述
     # customer_id = params[:id].to_i
     # login_customer_id = current_customer.id
     # if(customer_id != login_customer_id)
