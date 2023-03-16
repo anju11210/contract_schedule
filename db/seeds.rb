@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-#「!」を付けることでエラーが返ってくる（つけないとfalseが返ってくるのみで、原因がわかりにくい）
+#NOTE:「!」を付けることでエラーが返ってくる（つけないとfalseが返ってくるのみで、原因がわかりにくい）
 Admin.find_or_create_by!(email: "sample-email@admin") do |admin|
   admin.password = "admin1"
 end

@@ -3,7 +3,7 @@ class Admin::RealEstatesController < ApplicationController
 
   def new
     @real_estate = RealEstate.new
-    #パスにidは必要ないが、物件と会員を紐づけるためにcustomer_idは渡す必要があるため、formatで記述
+    #NOTE:パスにidは必要ないが、物件と会員を紐づけるためにcustomer_idは渡す必要があるため、formatで記述
     @customer = Customer.find(params[:format])
   end
 

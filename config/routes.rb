@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   #管理者側ルーティング設定
   namespace :admin do
     root "homes#top"
-    #アポイントを、アポイント登録時から会員と紐づけたいため
-    #appointmentsのnewとcreateのみをネストさせる方法もある（その方が遷移先パスにidを渡す必要がなくミスが減る、※今回は、全てネストした状態で実装したためこのまま）
+    #NOTE:アポイントを、アポイント登録時から会員と紐づけたいためネストさせる
+    #NOTE:appointmentsのnewとcreateのみをネストさせる方法もある（その方が遷移先パスにidを渡す必要がなくミスが減る、※今回は、全てネストした状態で実装したためこのまま）
     get  "customers" => redirect("admin/customers/new")
     resources :customers, only: %i(new create show edit update) do
       resources :appointments, only: %i(new create index show edit update destroy)
@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   #会員側ルーティング設定
   scope module: :public do
     root "homes#top"
-    #下記、「get 'homes/about'」と同義（今回の場合はどちらでも良い）
+    #NOTE:下記、「get 'homes/about'」と同義（今回の場合はどちらでも良い）
     resource :homes, only: [] do
       get :about
     end

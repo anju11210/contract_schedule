@@ -27,8 +27,8 @@
         <div class="col-md-10 mt-5">
           <%= form_with model: @appointment, url: admin_customer_appointments_path(@customer) do |f| %>
             <%= render 'layouts/error_messages', model: f.object %>
-            <!--customer_idはURLでも渡しているが、hiddenで書くことでストロングパラメータから一括で取ってくることができる-->
-            <!--admin/appointments_controllerの7行目の記述を行った場合：「value: @customer.id」が不要となる（既にidを持っているため）-->
+            <!--NOTE:customer_idはURLでも渡しているが、hiddenで書くことでストロングパラメータから一括で取ってくることができる-->
+            <!--NOTE:admin/appointments_controllerの7行目の記述を行った場合：「value: @customer.id」が不要となる（既にidを持っているため）-->
             <%= f.hidden_field :customer_id, value: @customer.id %>
             <table class="table table-borderless">
               <tbody>

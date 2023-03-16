@@ -1,9 +1,9 @@
-<!--id="comments_areaをrenderで指定した部分テンプレートに更新-->
+<!--NOTE:id="comments_areaをrenderで指定した部分テンプレートに更新-->
 $("#comments-area").html("<%= j(render 'admin/questions/comment_index', question: @question) %>")
-<!--送信後のフォーム内を空にする-->
+<!--NOTE:送信後のフォーム内を空にする-->
 $("#comment_body").val("")
-<!--errorが発生しているcommentのままだとエラーメッセージが消えないため、create後は発生していないものにここで更新-->
+<!--NOTE:errorが発生しているcommentのままだとエラーメッセージが消えないため、create後は発生していないものにここで更新-->
 $("#comments-error").html("<%= j(render 'layouts/error_messages', model: @comment) %>");
-<!--フラッシュメッセージ-->
+<!--NOTE:フラッシュメッセージ-->
 $('#flash-message').html("<%= j(render 'layouts/flash') %>");
 

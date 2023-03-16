@@ -19,7 +19,7 @@ module Portfolio
     config.time_zone = "Tokyo"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    #railsアプリケーションの日本語対応化
+    #NOTE:railsアプリケーションの日本語対応化
     config.i18n.default_locale = :ja
     config.i18n.available_locales = :ja
   end

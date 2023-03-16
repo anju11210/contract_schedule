@@ -49,7 +49,7 @@ class Customer < ApplicationRecord
     wait_third_person: 21,
   }
 
-  #進捗ステータスを表示させるビュー上の記述を簡潔にする
+  #NOTE:進捗ステータスを表示させるビュー上の記述を簡潔にする
   def ja_status
     Customer.statuses_i18n[status]
   end
@@ -62,7 +62,7 @@ class Customer < ApplicationRecord
     end
   end
 
-  #退会していたらログインできないようにする
+  #NOTE:退会していたらログインできないようにする
   #active_for_authentication：deviseのgemの中に定義されているメソッド
   def active_for_authentication?
     super && is_active

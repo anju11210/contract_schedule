@@ -13,7 +13,7 @@
     </tr>
     <tr>
       <th style="width: 100px;">会員状況</th>
-      <!--「.html_safe」をつけないと、()等をhtmlと判断して表示してしまう-->
+      <!--NOTE:「.html_safe」をつけないと、()等をhtmlと判断して表示してしまう-->
       <td><%= customer_active(@customer).html_safe %></th>
     </tr>
     <tr>

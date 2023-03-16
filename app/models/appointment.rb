@@ -23,12 +23,12 @@ class Appointment < ApplicationRecord
 
   #インスタンスメソッド（コールバックと比べて引数を渡しやすい）：コントローラーで定義される（インスタンス変数.メソッド名）
   def set_time_date
-    #dateが存在していたら、dateのフォームから年月日を取得
+    #NOTE:dateが存在していたら、dateのフォームから年月日を取得
     if self.date.present?
       year = self.date.year
       month = self.date.month
       day = self.date.day
-      #フォームから取得した値をtimeに代入
+      #NOTE:フォームから取得した値をtimeに代入
       self.time = self.time.change(year: year, month: month, day: day)
     end
   end

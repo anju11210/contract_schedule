@@ -4,7 +4,7 @@ class Admin::CommentsController < ApplicationController
   def create
     @question = Question.find(params[:id])
     @comment = Comment.new(comment_params)
-    #3行目で取得しているquestionのidを、6行目で代入している（hiddenを使う方法と結果は同じ）
+    #NOTE:3行目で取得しているquestionのidを、6行目で代入している（hiddenを使う方法と結果は同じ）
     @comment.question_id = @question.id
     if @comment.save
       flash.now[:notice] = "回答の送信に成功しました。"

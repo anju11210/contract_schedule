@@ -1,9 +1,8 @@
 <header>
-  <!--レスポンシブデザイン指定：992px以上は通常、ヘッダー背景色指定-->
+  <!--NOTE:レスポンシブデザイン指定：992px以上は通常、ヘッダー背景色指定-->
   <nav class="navbar navbar-expand-lg" style="background-color: #F8F8FF;">
     <div class="container">
       <% if admin_signed_in? %>
-        <!--後日パス変更-->
         <h3><%= link_to("Contract Schedule", root_path) %></h3>
       <% else %>
         <h3><%= link_to("Contract Schedule", root_path) %></h3>
@@ -13,12 +12,11 @@
       <button class="navbar-toggler text-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon text-primary"></span>
       </button>
-      <!--ハンバーガーメニューの開閉設定-->
+      <!--NOTE:ハンバーガーメニューの開閉設定-->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <div class="navbar-nav ml-auto">
           <!--管理者ログイン時ヘッダー-->
           <% if admin_signed_in? %>
-            <!--display:flexをかけると横並びになる（navberのみにかけたい）：検索窓には適用したくないため、divを1つ追加-->
             <div>
               <ul class="nav justify-content-end">
                 <li class="nav-item">
