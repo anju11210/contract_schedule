@@ -32,9 +32,8 @@ class Admin::AppointmentsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @real_estate = @customer.real_estate
     @appointment = Appointment.find(params[:id])
-    #NOTE:もっと簡潔なコードもあるそうだが、今回はあえてこのまま（何が足されているのか、可視化できた方がわかりやすいため）
-    #TODO:モデルに書き換えたいが、エラーが発生
-    @total = @appointment.earnest_money + @appointment.brokerage_fee + @appointment.revenue_stamp_fee + @appointment.remaining_amount + @appointment.real_estate_tax + @appointment.registration_fee_1 + @appointment.registration_fee_2 + @appointment.renovation_fee + @appointment.apartment_management_fee + @appointment.other_expense_1 + @appointment.other_expense_2 + @appointment.other_expense_3 + @appointment.other_expense_4 + @appointment.other_expense_5
+    #@total = @appointment.earnest_money + @appointment.brokerage_fee + @appointment.revenue_stamp_fee + @appointment.remaining_amount + @appointment.real_estate_tax + @appointment.registration_fee_1 + @appointment.registration_fee_2 + @appointment.renovation_fee + @appointment.apartment_management_fee + @appointment.other_expense_1 + @appointment.other_expense_2 + @appointment.other_expense_3 + @appointment.other_expense_4 + @appointment.other_expense_5
+    @total = @appointment.total_money
   end
 
   def edit

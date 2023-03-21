@@ -32,9 +32,10 @@ class Appointment < ApplicationRecord
       self.time = self.time.change(year: year, month: month, day: day)
     end
   end
-  
-  # def total_money
-  #   earnest_money + brokerage_fee + revenue_stamp_fee + remaining_amount + real_estate_tax + registration_fee_1 + registration_fee_2 + renovation_fee + apartment_management_fee + other_expense_1 + other_expense_2 + other_expense_3 + other_expense_4 + other_expense_5
-  # end
+
+  #NOTE:もっと簡潔なコードもあるそうだが、今回はあえてこのまま（何が足されているのか、可視化できた方がわかりやすいため）
+  def total_money
+    earnest_money + brokerage_fee + revenue_stamp_fee + remaining_amount + real_estate_tax + registration_fee_1 + registration_fee_2 + renovation_fee + apartment_management_fee + other_expense_1 + other_expense_2 + other_expense_3 + other_expense_4 + other_expense_5
+  end
 end
 
