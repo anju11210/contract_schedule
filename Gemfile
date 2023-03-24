@@ -85,3 +85,7 @@ gem 'simple_calendar', '~> 2.0'
 #カレンダー日本語化のため
 gem 'rails-i18n'
 
+#rubocop導入
+gem 'rubocop', require: false
+gem 'rubocop-rails', require: false
+
